@@ -3,36 +3,84 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { DashboardComponent } from './pages/dashboard/dashboard.component';
+// import { NavBarComponent } from './nav-bar/nav-bar.component';
+import { SideBarComponent } from './pages/side-bar/side-bar.component';
 import { LoginComponent } from './pages/login/login.component';
-import { InfosCouvComponent } from './pages/infos-couv/infos-couv.component';
-import { ModifPasswordComponent } from './pages/modif-password/modif-password.component';
+import { DashbordComponent } from './pages/dashbord/dashbord.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
+// import { TableauComponent } from './components/tableau/tableau.component';
+import { NgbDatepickerModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgCircleProgressModule } from 'ng-circle-progress';
+import { CommonModule } from '@angular/common';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ReglageComponent } from './pages/reglage/reglage.component';
-import { SideBarGComponent } from './pages/side-bar-g/side-bar-g.component';
-import { SideBarDComponent } from './pages/side-bar-d/side-bar-d.component';
+import { JtwInterceptor } from './helpers/interceptor.service';
+import { InfosSerreComponent } from './pages/infos-serre/infos-serre.component';
 import { TableauComponent } from './pages/tableau/tableau.component';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { TempHumComponent } from './pages/temp-hum/temp-hum.component';
-import { SauvegardeComponent } from './pages/sauvegarde/sauvegarde.component';
+import { ModifPasswordComponent } from './pages/modif-password/modif-password.component';
+import { GooleMapsComponent } from './pages/goole-maps/goole-maps.component';
+import { SocketioService } from './services/socketio.service';
+import { ConnexionComponent } from './pages/connexion/connexion.component';
+import { DashbComponent } from './pages/dashb/dashb.component';
+
+import {ChartModule} from 'angular-highcharts'
 
 @NgModule({
   declarations: [
     AppComponent,
-    DashboardComponent,
+    DashbordComponent,
+    SideBarComponent,
     LoginComponent,
-    InfosCouvComponent,
-    ModifPasswordComponent,
     ReglageComponent,
-    SideBarGComponent,
-    SideBarDComponent,
+    InfosSerreComponent,
     TableauComponent,
     TempHumComponent,
-    SauvegardeComponent
+    ModifPasswordComponent,
+    GooleMapsComponent,
+    ConnexionComponent,
+    DashbComponent
+    // NavBarComponent,
+    // SideBarComponent,
+    // LoginComponent,
+    // DashbordComponent,
+    // TableauComponent,
+
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    NgbModule,
+    NgxPaginationModule,
+    ChartModule,
+    NgCircleProgressModule.forRoot({
+      // set defaults here
+      radius: 100,
+      outerStrokeWidth: 16,
+      innerStrokeWidth: 8,
+      outerStrokeColor: "#78C000",
+      innerStrokeColor: "#C7E596",
+      animationDuration: 300,
+
+    }),
+    HttpClientModule,
+    NgbDatepickerModule,
+    Ng2SearchPipeModule,
+    BrowserAnimationsModule, // required animations module
+    ToastrModule.forRoot(),
+
+
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: JtwInterceptor, multi: true },SocketioService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

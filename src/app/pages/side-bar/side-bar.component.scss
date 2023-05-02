@@ -1,0 +1,178 @@
+
+body{
+  background-color: #D1F4F0;
+}
+#leHeader 
+{
+width: 100%;height: 180px; background-color: #FFFFFF;
+padding: 12px;
+// border: 1px solid black; gap: 12px;
+box-shadow: 1px 2px 2px 2px #000000;
+
+}
+#deuxSidebarDashbord
+{
+width: 100%;
+height: 1000px;background-color: #D1F4F0;
+//border: 1px solid black;
+gap: 18px;
+}
+#sbg
+{
+width: 19%;
+height: 100%;
+// border:1px solid black; 
+gap: 18px;padding: 1%;
+background-color: #FFFFFF;
+box-shadow: 1px 2px 2px 2px #000000;
+}
+
+#dashboard
+{
+width: 72%;
+height: 100%;
+// border:1px solid black; gap: 1%;
+}
+
+
+
+
+
+
+
+#sectBarEtLogo
+{
+  width: 99%;
+ height: 100%;
+ border:1px solid black;
+//  background-color: #FFFFFF;
+ box-shadow: 1px 2px 2px 2px #000000;
+ gap: 2%;
+ padding: 7px;
+}
+#sectLogo
+{
+ width: 10%;
+ height: 100%;
+//  border:1px solid black;
+}
+
+#sectBar
+{
+  width: 82%;
+ height: 90%;background-color: #FAFF07;
+ border-radius: 27px;
+ box-shadow: 1px 2px 7px  #000000;gap: 25%; padding-top: 20px;
+ 
+}
+
+// Coté sidebar de gauche
+#fan
+{
+    background-color: #FAFF07;
+    width: 100%;
+    height: 33%;
+    box-shadow: 1px 2px 2px  #000000;
+    // border: 1px solid black;
+}
+
+// Coté sidebar de droite
+#sbd
+{
+width: 13%;
+height: 100%;
+// border:1px solid black;
+background-color: #FFFFFF;
+box-shadow: 1px 2px 2px 2px #000000; gap: 7px;padding: 1%;
+}
+
+#sec1
+{
+  background-color: #FFFFFF;
+  width: 100%;
+  height: 25%;
+  padding: 1%;
+  padding-top: 8px;gap: 2px;
+  box-shadow: 0px 1px 1px 1px #000000;
+}
+
+#sec11
+{
+  // border: 1px solid black;
+  width: 60%;
+  height: 90%;
+}
+
+
+#sec12
+{
+  // border: 1px solid black;
+  width: 38%;
+  height: 90%;
+  gap: 8px;
+
+}
+#btn
+{
+  height: 38px; width: 85%;
+}
+
+#sec2
+{
+  background-color: #FFFFFF;
+  width: 100%;
+  height: 45%;
+  padding: 1%;
+  padding-top: 8px;gap: 2px;
+  box-shadow: 0px 1px 1px 1px #000000; gap: 1%;
+}
+
+#sec21
+{
+  width: 100%; height: 70%;
+  // border: 1px solid black;
+   gap: 2px;
+}
+#btn{width: 86%; height: 25px; margin-left: 7%;margin-top: 9px; padding-top: -3px;border: none;}
+button:hover
+{background-color: #FAFF07;}
+#sec22
+{
+  width: 100%; height: 28%;
+  // border: 1px solid black;
+}
+
+#sec3
+{
+  background-color: #FFFFFF;
+  width: 100%;
+  height: 30%;
+  padding: 1%;
+  padding-top: 8px;gap: 2px;
+  box-shadow: 0px 1px 1px 1px #000000;
+}
+
+// MODAL info couveuse
+#hau
+{
+  background-color: #FAFF07;
+  height: 70%;width: 98%;gap: 5%;
+
+}
+#bas
+{
+  background-color: #ff0751;
+  height: 30%;width: 98%;
+
+}
+
+
+
+
+
+
+
+
+
+
+

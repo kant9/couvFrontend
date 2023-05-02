@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;800&display=swap');
+
+* {
+  font-family: 'Poppins', sans-serif;
+}
+
+.wrapper {
+  background: #ececec;
+  padding: 0 20px 0 20px;
+}
+
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.row {
+  width: 900px;
+  height: 550px;
+  border-radius: 10px;
+  background: white;
+  box-shadow: 5px 5px 10px 1px rgba(0, 0, 0, 0.2);
+  border: 1px solid blue;
+
+}
+
+
+.right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.trait {
+  border-left: 10px solid black;
+  height: 100%;
+  position: absolute;
+  margin-left: -440px;
+}
+
+.im3{
+  background-image: url("../../../assets/2.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: absolute;
+  border-radius: 10px;
+  object-fit: cover;
+  width: 200px;
+  height: 150px;
+  bottom: 50px;
+  margin-right: 900px;
+  margin-bottom: 300px;
+}
+
+.im4{
+  background-image: url("../../../assets/2.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: absolute;
+  border-radius: 10px;
+  object-fit: cover;
+  width: 100px;
+  height: 70px;
+  bottom: 50px;
+ margin-right: 600px;
+}
+
+/* @media only screen and (max-width: 768px) {
+  .side-image {
+    border-radius: 10px 10px 0 0;
+  }
+
+  img {
+    width: 35px;
+    position: absolute;
+    top: 20px;
+    left: 47%;
+  }
+
+  .text {
+    position: absolute;
+    top: 70%;
+    text-align: center;
+  }
+
+  .text p,
+  i {
+    font-size: 17px;
+  }
+
+  .row {
+    max-width: 420px;
+    width: 100%;
+  }
+} */

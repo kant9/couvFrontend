@@ -1,1 +1,62 @@
-<p>login works!</p>
+<div class="d-flex flex-column justify-content-center" id="Contener">
+  <p style="text-align: center; font-weight: bolder; font-size: 30px;">Système de gestion de couveuse</p>
+  <div class="d-flex flex-rowjustify-content-center" id="lesdeux">
+      <div class="d-flex flex-row justify-content-center" id="sectionImage">
+              <img src="../../../assets/poussin.png" alt="poussin" id="pousin" style="width: 80%; height: 80%; box-shadow: 0.1px 0.2px 0.5px 0.4px #0b0b0b;">
+
+      </div>
+      <div class="d-flex flex-row justify-content-center" id="SectionForm">
+          <form id="form" (submit)="onSubmit()" [formGroup]="registerForm">
+
+              <header style="font-size: 20px;" class="d-flex justify-content-center">
+                  Authentification
+                </header><br>
+              <div class="input-box ">
+                  <div class="input-field">
+                      <input type="text" class="input" id="email" name="email" type="text" id="email" name="email"
+                      [ngClass]="{'is-invalid':registerForm.controls['email'].errors}" placeholder=""
+                      formControlName="email" type="email" id="email" name="email" required autocomplete="off">
+                      <label for="email">Email<span style="color: red;">*</span></label>
+                      <div *ngIf="registerForm.controls['email'].dirty && registerForm.controls['email'].errors"
+                      class="text-danger">
+                      <div *ngIf="registerForm.controls['email'].errors ['required']">
+                          Ce champ est require
+                      </div>
+                      <div *ngIf="registerForm.controls['email'].errors['email']">
+                          Adresse email incorrect
+                      </div>
+                      </div>
+                  </div> 
+      
+                  <div class="input-field">
+                      <input type="password" class="input" id="password" name="password" type="text" id="password"
+                      name="password" [ngClass]="{'is-invalid':submitted && registerForm.controls['password'].errors}"
+                      placeholder="" formControlName="password" type="password" required>
+                      <label for="password">Password<span style="color: red;">*</span></label>
+                      <div *ngIf="registerForm.controls['password'].dirty && registerForm.controls['password'].errors"
+                      class="text-danger">
+                      <div
+                          *ngIf="registerForm.controls['password'].dirty && registerForm.controls['password'].errors['required']">
+                          Ce champ est requis
+                      </div>
+                      <div
+                          *ngIf="!registerForm.controls['password'].errors['required'] && registerForm.controls['password'].errors['minlength']">
+                          Password minimun 6 caractères
+                      </div>
+                      </div>
+                  </div> <br>
+      
+                  <div class="d-grid gap-2 col-10 mx-auto" >
+                      <button type="submit" id="button" class="btn">
+                      <span class="visually" *ngIf="!spin">Se connecter</span>
+                      <span class="spinner-border spinner-border-sm" *ngIf="spin" role="status" aria-hidden="false"
+                          style="color: white;"></span>
+                      </button>
+                  </div><br>
+                </div>
+           
+          </form>
+      </div>
+
+  </div>
+</div>

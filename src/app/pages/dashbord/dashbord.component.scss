@@ -1,0 +1,840 @@
+// #conteneurDash
+// {
+//     background-color: #D1F4F0;
+//     padding: 10px 10px;
+//     width: 100%;
+//     // margin-left: 120px;
+//     gap: 15px;
+//     margin-top: -45px;
+
+// }
+
+// // Bloc blanche haute
+// #BlocHaute
+// {
+//     width: auto;
+//     height: 200px;
+//     background-color: #FFFFFF;
+//     gap: 4px;
+//     padding: 10px 10px;
+//     border-radius: 7px 7px 7px 7px ;
+//     box-shadow: 1px 3px 2px #000000;
+// }
+
+// // Bloc blanche haute
+// #Blocbasse
+// {
+//     width: 100%;
+//     height: 250px;
+//     // border: 1px solid black;
+
+//     gap: 13.4px;
+   
+//     border-radius: 7px 7px 7px 7px ;
+//     box-shadow: 1px 3px 2px #000000;
+// }
+
+// //Le texte "Données de la serre à l’instant"
+
+// // La section contenant les 4 sections de parametres (température, humidité, hum sol,luminosité
+// #sectionsParam
+// {
+//     height: 80%;
+//     // border: 1px solid black;
+//     background-color: #FFFFFF;
+//     gap: 16px;
+//     padding: 5px 5px;
+
+    
+    
+// }
+// //La section de température de la serre
+// #sectTemp
+// {
+//     background-color: #D1F4F0;
+//     width: 25%;
+//     height: 100%;
+//     padding: 5px 5px; text-align: center;
+//     border-radius: 4px 4px 4px 4px ;
+//     // border: 0.3px solid black;
+//     box-shadow: 1px 2px 2px #000000;
+// }
+
+// //La section de humidité de la serre
+// #sectHum
+// {
+//     background-color: #D1F4F0;
+//     width: 25%;
+//     height: 100%;
+//     padding: 5px 5px; text-align: center;
+//     border-radius: 4px 4px 4px 4px ;
+//     // border: 0.3px solid black;
+//     box-shadow: 1px 2px 2px #000000;
+// }
+
+// //La section de humidité sol de la serre
+// #sectHumSol
+// {
+//     background-color: #D1F4F0;
+//     width: 25%;
+//     height: 100%;
+//     padding: 5px 5px; text-align: center;
+//     border-radius: 4px 4px 4px 4px ;
+//     // border: 0.3px solid black;
+//     box-shadow: 1px 2px 2px #000000;
+// }
+
+// //La section de luminosité de la serre
+// #sectLum
+// {
+//     background-color: #D1F4F0;
+//     width: 25%;
+//     height: 100%;
+//     padding: 5px 5px; text-align: center;
+//     border-radius: 4px 4px 4px 4px ;
+//     // border: 0.3px solid black;
+//     box-shadow: 1px 2px 2px #000000;
+// }
+
+// // Contenant icone température et circular progressbar
+// #contCircularTempetIconTemp
+// {
+//   //border: 1px solid black;
+//   height: 80%;
+//   gap: 0px;
+//   justify-content: center; vertical-align: middle;
+// }
+
+// //Icone de temperature, hum, humSol, lum
+// .iconHumEns{width: 35px; height: 40px;margin-top: 7px;}
+// .iconeEns{width: 35px; height: 40px;margin-top: 7px;}
+// .iconeTemp{width: 35px; height: 40px;margin-top: 7px; margin-right: 2px; }
+// #imhumSol{width: 55px; height: 50px;margin-top: 7px;}
+
+// //les images au iveau des historiques
+// #imHisto1{width: 35px; height: 40px;}
+// #imHisto2{width: 55px; height: 50px;margin-top: -7px;}
+// #imHisto3{width: 35px; height: 40px;}
+// #imHisto4{width: 35px; height: 40px;}
+
+
+// //Icone circulaire
+// .cirTemp
+// {
+//     margin-top: -12px
+// }
+
+// .valLuminosité
+// {
+//     margin-top: 12.3px
+// }
+// .thhe
+// {
+//      font-weight:bold;
+//      color: #000000;
+// }
+// //text de "lampe ..., alerte sonore, arrosage en cours
+// .laa
+// {
+//      font-weight: 500;
+//      color: #000000;
+// }
+
+// // Bloc bas
+
+// #clonGauche
+// {
+//     background-color: #FFFFFF;
+//     width: 24.6%;
+//     height: 100%;
+//     padding: 5px; gap: 0px;
+//     border-radius: 7px 7px 7px 7px ;
+//     box-shadow: 1px 3px 2px #000000;
+    
+// }
+
+// #ll
+// {
+//     display: flex;
+//     flex-direction: column;
+//      height: 90%;
+//     padding: 5px 5px; gap: 9px; margin-top: -6px;width: 100%;
+// }
+
+// #noir1
+// {
+//     background-color: #000000;
+//     width: 100%;
+//     height: 50%;
+//     justify-content: center;padding-top: 16px;
+//     border-radius: 7px 7px 7px 7px ;
+//     gap: 14px;
+// }
+
+// #noir2
+// {
+//     background-color: #000000;
+//     width: 100%;
+//     height: 50%;
+//     justify-content: center;
+//     padding-top: 16px;
+//     border-radius: 7px 7px 7px 7px ;
+//     gap: 14px;
+// }
+
+// // centre
+// #clonCentre
+// {
+//     background-color: #FFFFFF;
+//     width: 44%;
+//     height: 100%;
+//     padding: 5px; 
+//     border-radius: 7px 7px 7px 7px ;
+//     box-shadow: 1px 3px 2px #000000;
+//     gap: 1px;text-align: center;
+
+// }
+// #contclon
+// {
+   
+//  width: 100%;
+//  height: 90%;
+// //  border: 1px solid black;
+//  gap: 15px;
+// }
+
+
+// #premColon
+// {
+//     border-right: 0.02px solid black;
+//     width: 32%;
+//     height: 98%; 
+    
+// }
+
+// #deuxColon
+// {
+//    border-right: 0.02px solid black;
+//     width: 30%;
+//     height: 98%;
+    
+
+// }
+
+// #TroixColon
+// {
+   
+//     width: 34%;
+//     height: 98%;
+   
+
+// }
+
+// #lampe
+// {
+//    width: 60px;
+//    height: 80px;
+//    margin-bottom: -14px;
+// }
+
+// #lampe2
+// {
+//    width: 94px;
+//    height: 94px;
+//    color: red;
+//    margin-top: -10px;
+//   margin-bottom: -12px;
+// }
+
+// #buzzer
+// {
+//    width: 60px;
+//    height: 80px;
+// }
+
+
+// #arros
+// {
+//    width: 60px;
+//    height: 70px;
+// }
+// #arrosGif
+// {
+//    width: 140px;
+//    height: 95x;
+// }
+
+// // swich button
+// .form-check
+// {
+//     margin-left: 49px;margin-top: 22px;
+// }
+
+// #clonDroite
+// {
+//     background-color: #FFFFFF;
+//     width: 44%;
+//     height: 100%;
+//     padding: 5px; 
+//     border-radius: 7px 7px 7px 7px ;
+//     box-shadow: 1px 3px 2px #000000;
+//     gap: 1px;text-align: center;
+// }
+
+// #premColonD
+// {
+//    // border: 1px solid black;
+//     width: 50%;
+//     height: 98%;
+// }
+
+// #deuxColonD
+// {
+//     //border: 1px solid black;
+//     width: 50%;
+//     height: 98%;
+//  }
+
+// // MouseOver dans l'historique
+// .sec2{
+//     display: flex;
+//     flex-direction: row;
+//      height: 90%;
+//     padding: 5px 5px; gap: 9px; margin-top: -6px;width: 100%;
+// }
+
+// .sec2 .sec2-layer_scale {
+//             border-radius: 50%;
+//             -moz-transform: scale(0);
+//             -webkit-transform: scale(0);
+//             -ms-transform: scale(0);
+//             transform: scale(0); display: none;
+            
+//         }
+//         .sec2:hover .sec2-layer_scale, 
+//         .sec2.active .sec2-layer_scale {        
+//             border-radius: 0%;
+//             -moz-transform: scale(3);
+//             -webkit-transform: scale(1);
+//             -ms-transform: scale(1);
+//             transform: scale(1);
+//             color: white; font-size: 10px; display: block; cursor: pointer;
+//         }
+
+
+
+//         .sec1{
+//             display: flex;
+//             flex-direction: row;
+//              height: 90%;
+//             padding: 5px 5px; gap: 9px; margin-top: -6px;width: 100%;
+//         }
+        
+//         .sec1 .sec1-layer_scale {
+//                     border-radius: 50%;
+//                     -moz-transform: scale(0);
+//                     -webkit-transform: scale(0);
+//                     -ms-transform: scale(0);
+//                     transform: scale(0); display: none;
+                    
+//                 }
+//                 .sec1:hover .sec1-layer_scale, 
+//                 .sec1.active .sec1-layer_scale {        
+//                     border-radius: 0%;
+//                     -moz-transform: scale(3);
+//                     -webkit-transform: scale(1);
+//                     -ms-transform: scale(1);
+//                     transform: scale(1);
+//                     color: white; font-size: 10px; display: block; cursor: pointer;
+//                 }
+        
+
+// // Circular progressbar
+// .progress-wrapper {
+//     position: relative;
+//     margin-bottom: 20px;
+//   }
+  
+//   progress-arc {
+//     position: relative;
+//   }
+  
+//   .progress-text {
+//     position: absolute;
+//     top: 0;
+//     text-align: center;
+//     width: 100%;
+//     margin-top: 85px;
+//     font-size: 24px;
+//   }
+  
+//   circle {
+//     stroke-linecap: round;
+//     stroke-width: 5px;
+//     transition: stroke-dashoffset 0.1s linear;
+//   }
+  
+//   .control {
+//     position: relative;
+//   }
+
+
+// .form-check
+// {
+//   width: 40px;
+//   margin-left: 38px;
+//   margin-top: 34px;
+// }
+
+// .form-check2
+// {
+//   width: 40px;
+//   margin-left: 66px;margin-top: 40px;
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#conteneurDash
+{
+    background-color: #D1F4F0;
+    padding: 10px 10px;
+    width: 100%;
+    // margin-left: 120px;
+    gap: 15px;
+    margin-top: -7px;
+
+}
+
+// Bloc blanche haute
+#BlocHaute
+{
+    width: 100%;
+    height: 200px;
+    background-color: #FFFFFF;  
+    gap: 4px;
+    padding: 10px 10px;
+    border-radius: 7px 7px 7px 7px ;
+    box-shadow: 1px 3px 2px #000000;
+}
+
+.blocb
+{
+    padding: 10px 10px;
+    border-radius: 7px 7px 7px 7px ;
+    box-shadow: 1px 3px 2px #000000;
+    
+}
+
+// Bloc blanche haute
+#Blocbasse
+{
+    width: 100%;
+    height: 100%;
+    // border: 1px solid black;
+    padding: 5px 5px;
+    gap: 13.4px;
+   
+    border-radius: 7px 7px 7px 7px ;
+    // box-shadow: 1px 3px 2px #000000;
+}
+
+//Le texte "Données de la serre à l’instant"
+
+// La section contenant les 4 sections de parametres (température, humidité, hum sol,luminosité
+#sectionsParam
+{
+    height: 80%;
+    // border: 1px solid black;
+    background-color: #FFFFFF;
+    gap: 16px;
+    padding: 5px 5px;
+
+    
+    
+}
+//La section de température de la serre
+#sectTemp
+{
+    background-color: #FFFFFF;
+    width: 25%;
+    height: 100%;
+    padding: 5px 5px; text-align: center;
+    border-radius: 4px 4px 4px 4px ;
+    border: 0.3px solid black;
+    box-shadow: 1px 2px 2px #000000;
+}
+
+//La section de humidité de la serre
+#sectHum
+{
+    background-color: #FFFFFF;
+    width: 25%;
+    height: 100%;
+    padding: 5px 5px; text-align: center;
+    border-radius: 4px 4px 4px 4px ;
+    border: 0.3px solid black;
+    box-shadow: 1px 2px 2px #000000;
+}
+
+//La section de humidité sol de la serre
+#sectHumSol
+{
+    background-color: #D1F4F0;
+    width: 25%;
+    height: 100%;
+    padding: 5px 5px; text-align: center;
+    border-radius: 4px 4px 4px 4px ;
+    border: 0.3px solid black;
+    box-shadow: 1px 2px 2px #000000;
+}
+
+//La section de luminosité de la serre
+#sectLum
+{
+    background-color: #D1F4F0;
+    width: 25%;
+    height: 100%;
+    padding: 5px 5px; text-align: center;
+    border-radius: 4px 4px 4px 4px ;
+    border: 0.3px solid black;
+    box-shadow: 1px 2px 2px #000000;
+}
+
+// Contenant icone température et circular progressbar
+#contCircularTempetIconTemp
+{
+  //border: 1px solid black;
+  height: 80%;
+  gap: 0px;
+  justify-content: center; vertical-align: middle;
+}
+
+//Icone de temperature, hum, humSol, lum
+.iconHumEns{width: 35px; height: 40px;margin-top: 7px;}
+.iconeEns{width: 35px; height: 40px;margin-top: 7px;}
+.iconeTemp{width: 35px; height: 40px;margin-top: 7px; margin-right: 2px; }
+#imhumSol{width: 55px; height: 50px;margin-top: 7px;}
+
+//les images au iveau des historiques
+#imHisto1{width: 35px; height: 40px;}
+#imHisto2{width: 55px; height: 50px;margin-top: -7px;}
+#imHisto3{width: 35px; height: 40px;}
+#imHisto4{width: 35px; height: 40px;}
+
+
+//Icone circulaire
+.cirTemp
+{
+    margin-top: -12px
+}
+
+.valLuminosité
+{
+    margin-top: 12.3px
+}
+.thhe
+{
+     font-weight:bold;
+     color: #000000;
+     text-align: center;
+}
+//text de "lampe ..., alerte sonore, arrosage en cours
+.laa
+{
+     font-weight: 500;
+     color: #000000;
+}
+
+// Bloc bas
+
+#clonGauche
+{
+    background-color: #D1F4F0;
+    border-radius: 4px 4px 4px 4px ;
+    border: 0.3px solid black;
+    box-shadow: 1px 2px 2px #000000;
+    width: 24.6%;
+    height: 100%;
+    padding: 3px; gap: 0px;
+    // border-radius: 7px 7px 7px 7px ;
+    
+    
+}
+
+#ll
+{
+    display: flex;
+    flex-direction: column;
+     height: 90%;
+    padding: 5px 5px; gap: 9px; margin-top: -6px;width: 100%;
+}
+
+#noir1
+{
+    background-color: #000000;
+    width: 100%;
+    height: 50%;
+    justify-content: center;padding-top: 16px;
+    border-radius: 7px 7px 7px 7px ;
+    gap: 14px;
+}
+
+#noir2
+{
+    background-color: #000000;
+    width: 100%;
+    height: 50%;
+    justify-content: center;
+    padding-top: 16px;
+    border-radius: 7px 7px 7px 7px ;
+    gap: 14px;
+}
+
+// centre
+#clonCentre
+{
+    background-color: #D1F4F0;
+    width: 44%;
+    height: 100%;
+    padding: 5px; 
+    border-radius: 4px 4px 4px 4px ;
+    border: 0.3px solid black;
+    box-shadow: 1px 2px 2px #000000;
+    // box-shadow: 1px 3px 2px #000000;
+    gap: 1px;text-align: center;
+
+}
+#contclon
+{
+   
+ width: 100%;
+ height: 90%;
+//  border: 1px solid black;
+ gap: 15px;
+}
+
+
+#premColon
+{
+    border-right: 0.02px solid black;
+    width: 30%;
+    height: 98%; 
+    
+}
+
+#deuxColon
+{
+   border-right: 0.02px solid black;
+    width: 30%;
+    height: 98%;
+    // padding-right: 0.3px;
+    
+
+}
+
+#TroixColon
+{
+   
+    width: 30%;
+    height: 98%;
+   
+
+}
+
+#lampe
+{
+   width: 60px;
+   height: 80px;
+   margin-bottom: -14px;
+}
+
+#lampe2
+{
+   width: 60px;
+   height: 80px;
+   color: red;
+//    margin-top: -10px;
+  margin-bottom: -14px;
+}
+
+#buzzer
+{
+   width: 60px;
+   height: 80px;
+}
+
+
+#arros
+{
+   width: 60px;
+   height: 70px;
+}
+#arrosGif
+{
+   width: 140px;
+   height: 95x;
+}
+
+// swich button
+.form-check
+{
+    margin-left: 49px;margin-top: 22px;
+}
+
+#clonDroite
+{
+    background-color: #D1F4F0;
+    width: 44%;
+    height: 100%;
+    padding: 5px; 
+    border-radius: 4px 4px 4px 4px ;
+    border: 0.3px solid black;
+    box-shadow: 1px 2px 2px #000000;
+    // border-radius: 7px 7px 7px 7px ;
+    // box-shadow: 1px 3px 2px #000000;
+    gap: 1px;text-align: center;
+}
+
+#premColonD
+{
+   // border: 1px solid black;
+    width: 50%;
+    height: 98%;
+}
+
+#deuxColonD
+{
+    //border: 1px solid black;
+    width: 50%;
+    height: 98%;
+ }
+
+// MouseOver dans l'historique
+.sec2{
+    display: flex;
+    flex-direction: row;
+     height: 90%;
+    padding: 5px 5px; gap: 9px; margin-top: -6px;width: 100%;
+}
+
+.sec2 .sec2-layer_scale {
+            border-radius: 50%;
+            -moz-transform: scale(0);
+            -webkit-transform: scale(0);
+            -ms-transform: scale(0);
+            transform: scale(0); display: none;
+            
+        }
+        .sec2:hover .sec2-layer_scale, 
+        .sec2.active .sec2-layer_scale {        
+            border-radius: 0%;
+            -moz-transform: scale(3);
+            -webkit-transform: scale(1);
+            -ms-transform: scale(1);
+            transform: scale(1);
+            color: white; font-size: 10px; display: block; cursor: pointer;
+        }
+
+
+
+        .sec1{
+            display: flex;
+            flex-direction: row;
+             height: 90%;
+            padding: 5px 5px; gap: 9px; margin-top: -6px;width: 100%;
+        }
+        
+        .sec1 .sec1-layer_scale {
+                    border-radius: 50%;
+                    -moz-transform: scale(0);
+                    -webkit-transform: scale(0);
+                    -ms-transform: scale(0);
+                    transform: scale(0); display: none;
+                    
+                }
+                .sec1:hover .sec1-layer_scale, 
+                .sec1.active .sec1-layer_scale {        
+                    border-radius: 0%;
+                    -moz-transform: scale(3);
+                    -webkit-transform: scale(1);
+                    -ms-transform: scale(1);
+                    transform: scale(1);
+                    color: white; font-size: 10px; display: block; cursor: pointer;
+                }
+        
+
+// Circular progressbar
+.progress-wrapper {
+    position: relative;
+    margin-bottom: 20px;
+  }
+  
+  progress-arc {
+    position: relative;
+  }
+  
+  .progress-text {
+    position: absolute;
+    top: 0;
+    text-align: center;
+    width: 100%;
+    margin-top: 85px;
+    font-size: 24px;
+  }
+  
+  circle {
+    stroke-linecap: round;
+    stroke-width: 5px;
+    transition: stroke-dashoffset 0.1s linear;
+  }
+  
+  .control {
+    position: relative;
+  }
+
+  .form-check1
+  {
+    width: 40px;
+    margin-left: 29px;
+    margin-top: 36px;
+  }
+
+.form-check
+{
+  width: 40px;
+  margin-left: 32px;
+  margin-top: 33px;
+}
+
+.form-check2
+{
+  width: 40px;
+  margin-left: 47px;margin-top: 30px;
+}
+
+
+
+
+#verin{
+    width: 80px;height: 30px;margin-left: 46px;
+}
+
+    

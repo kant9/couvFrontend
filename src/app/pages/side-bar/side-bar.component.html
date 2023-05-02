@@ -1,0 +1,438 @@
+
+<div class="d-flex flex-column justify-content-center" style="background-color: #D1F4F0; width: 100%;height:100vh; gap: 12px; padding: 12px;">
+
+    <div class="d-flex flex-row justify-content-center" id="leHeader">
+        
+        <div class="d-flex flex-row justify-content-center sidebar shadow bg-light collapse" id="sectBarEtLogo">
+            <a href="home" title="Retour">
+                <div class="d-flex flex-row justify-content-center" id="sectLogo">
+                    <img src="../../../assets/LogoCouv.png" alt="" (click)="ngOnInit()">
+                    
+                </div>
+            </a>
+            <div class="d-flex flex-row justify-content-center" id="sectBar">
+                <!-- Lien pour information couveuse -->
+               <a role="button" class="navbar-brand text text-danger" data-bs-toggle="modal" href="#exampleModalToggle"
+                role="button" data-toggle="tooltip" data-placement="top" title="Infos Couveuse"> 
+                <!-- <span class="material-icons" style=" size: 40px;">info</span> -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
+                    class="bi bi-info-circle" viewBox="0 0 16 16">
+                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                    <path
+                        d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
+                </svg>
+               </a> 
+                <!-- Lien vers l'historique des données de la couveuse -->
+                <a routerLink="/tens-hum" (click)="switchHistorique()" role="button" role="button" class="navbar-brand text text-danger" href="#" data-toggle="tooltip"
+                data-placement="top" title="Historique" data-bs-toggle="modal" href="#exampleModalMaps">
+                <!-- <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-geo-alt"
+                    viewBox="0 0 16 16">
+                    <path
+                        d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A31.493 31.493 0 0 1 8 14.58a31.481 31.481 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94zM8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10z" />
+                    <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+                </svg> -->
+                <img src="../../../assets/database.png" alt="" style="height: 34px;width: 37px;margin-top: -5px;">
+               </a> 
+                <!-- Lien le popup de modification mot de passe -->
+                <a role="button" class="navbar-brand text text-danger" data-bs-toggle="modal" href="#exampleModalPassword"role="button" data-toggle="tooltip" data-placement="top" title="Modif mot de passe">
+                    <img src="../../../assets/modifpwd.png" alt="" style="height: 34px;width: 37px;margin-top: -5px;">
+                </a> 
+                <!-- Lien de la déconnexion au système couveuse -->
+                <a (click)="logout()" role="button" class="navbar-brand text text-danger" href="#" data-toggle="tooltip"
+                routerLink="login" data-placement="top" title="Deconnexion">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
+                    class="bi bi-box-arrow-right" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                        d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z" />
+                    <path fill-rule="evenodd"
+                        d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z" />
+                </svg>
+                </a>
+
+            </div>
+        </div>
+    </div>
+    <div class="d-flex flex-row justify-content-center" id="deuxSidebarDashbord">
+        <div class="d-flex flex-column justify-content-center" id="sbg">
+
+                <div class="d-flex justify-content-center" id="fan" title="Refroidisseur">
+                    <img src="../../../assets/fan.png" alt="">
+                </div>
+                <div class="d-flex justify-content-center" id="fan" title="Rechauffeur">
+                    <img src="../../../assets/rechauffeurOff.png" alt="">
+                </div>
+                <div class="d-flex justify-content-center" id="fan" title="Humidificateur">
+                    <img src="../../../assets/icons8-humidifier-32.png" alt="">
+                </div>
+        </div>
+        <div class="d-flex flex-column justify-content-center" id="dashboard">
+            <!-- <app-dashbord *ngIf="showDashboard"></app-dashbord> -->
+            <app-dashb *ngIf="!showHistorique"></app-dashb>
+            <app-tableau *ngIf="showHistorique"></app-tableau>
+    
+        </div>
+        <div class="d-flex flex-column justify-content-center" id="sbd">
+            <div class="d-flex flex-row justify-content-center" id="sec1">
+                <div class="d-flex justify-content-center" id="sec11" title="Alerte">
+                    <img src="../../../assets/alarmOff.png" alt="alarm" id="alarm">
+                </div>
+                <div class="d-flex flex-column justify-content-center" id="sec12">
+                    <img src="../../../assets/boutRedOFF.png" alt="BoutonRouge" id="bouton" title="Alerte Température">
+                    <img src="../../../assets/boutbluoff.png" alt="BoutonBleu"id="bouton" title="Alerte Humidité">
+                </div>
+            </div>
+            <div class="d-flex flex-column justify-content-center " id="sec2">
+                <div class="d-flex flex-column justify-content-center " id="sec21">
+                    <p style="text-align: center; font-weight: bold; margin-bottom: -4px;margin-top: -7px;">Infos cycle</p>
+                    <p style="text-align: center; margin-bottom: -4px; font-size: 13px;">Quantité:60</p>
+                    <p style="text-align: center; margin-bottom: -4px;font-size: 13px;">Espèce:poule</p>
+                    <button data-bs-toggle="modal" href="#exampleModal" id="btn">Modifier</button>
+                    
+                </div>
+                <hr style="margin-bottom: -3px;margin-top: -3px;">
+                <div class="d-flex flex-column justify-content-center " id="sec22">
+                    <p style="text-align: center; margin-bottom: -4px;font-size: 13px;">Eclosion dans:</p>
+                    <p style="text-align: center; margin-bottom: -4px;font-size: 13px;">12 jours</p>
+                </div>
+            </div>
+            <div class="d-flex flex-column justify-content-center" id="sec3">
+                <p style="text-align: center; font-weight: bold; margin-bottom: -4px;margin-top: -7px;">Enregistrement</p>
+                <p style="font-size: 13px;text-align: center;">Cliquez sur le bouton pour 
+                    sauvegarder vos  données</p>
+                    <button data-bs-toggle="modal" href="#exampleModal2" style="margin-bottom: 6px;margin-top: -8px;">Sauvegarder</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- popup infos couveuse -->
+<div class="modal   modal-xl fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel"
+    tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content shadow" style="background-color: #FFFFFF; padding: 12px;">
+            <div class="modal-header shadow" style="background-color: #FFFFFF;height: 9%;">
+                <h5 class="modal-title shadow p-2" id="exampleModalToggleLabel"
+                    style="margin: 0 auto; border-radius: 10px;">Information sur la couveuse</h5>
+                <!-- <span type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></span> -->
+            </div>
+            <div class="modal-body d-flex flex-row justify-content-center" style="background-color: #FFFFFF;padding: 12px; height: 90%;gap: 1%;box-shadow: 0px 1px 1px 1px #000000;">
+                <div class="d-flex flex-column justify-content-center" style="background-color: #FFFFFF;width: 55%;height: 500px;gap: 3%;box-shadow: 0px 1px 1px 1px #000000;">
+                        <div class="d-flex flex-row justify-content-center" style="background-color: #FFFFFF;width: 100%;height: 30%;gap: 2%; box-shadow: 0px 1px 1px 1px #000000">
+                            <div  style="background-color: #D1F4F0; width: 41%;height: 94%;padding-left: 6%;box-shadow: 0px 1px 1px 1px #000000;">
+                                <div class="d-flex justify-content-center" style="width: 80%;height: 100%; background-color: #FFFFFF;border-radius: 50%;">
+                                    <img src="../../../assets/logPresentation.png" alt="" style="height: 100%;width: 90%;border-radius: 50%;">
+                                </div>
+                                 
+                            </div>
+                            <div class="d-flex flex-column justify-content-center" style="background-color: #D1F4F0; width: 55%; padding-left: 20%;box-shadow: 0px 1px 1px 1px #000000">              
+                                <h5>Proprietaire</h5>
+                                <p>Cheikh diouf</p>
+                            </div>
+                        </div>
+                        <!-- secon -->
+                        <div class="d-flex flex-row justify-content-center" style="background-color: #FFFFFF;width: 100%;height: 67%;gap: 2%;margin-top: -2px; box-shadow: 0px 1px 1px 1px #000000">
+                            <div class="d-flex flex-column"  style="background-color: #D1F4F0;width: 43%;height: 100%;padding: 8px;gap: 2px;box-shadow: 0px 1px 1px 1px #000000">
+                                <div class="d-flex flex-row" style="width: 100%;height: 33%;background-color: #D1F4F0;">
+                                    <h5 class="d-flex flex-row justify-content-center" style="width: 41%;height: 100%;;padding-top: 34px;padding-left: 8px;">Dimensions</h5>
+                                    <div class="d-flex flex-column justify-content-center" style="width: 59%;height: 100%;;padding-top: 20px;padding-left: 14px;">
+                                        <p style="margin-bottom: -3px;">Largeur:  1/2 m</p>
+                                        <p style="margin-bottom: -3px;">Heuteur:  1/2 m</p>
+                                        <p>Profondeur</p>
+                                    </div>
+                                </div>
+                                <div class="d-flex flex-row" style="width: 100%;height: 33%;background-color: #D1F4F0;">
+                                    <h5 class="d-flex flex-row justify-content-center" style="width: 41%;height: 100%;;padding-top: 34px;padding-left: 8px;">Capacité:</h5>
+                                    <div class="d-flex flex-column justify-content-center" style="width: 59%;height: 100%;;padding-top: 2px;padding-left: 14px;">
+                                        <p style="margin-bottom: -3px;">60 oeufs max</p>
+                                        <p style="margin-bottom: -3px;">nombre de plateax</p>
+                                      
+                                    </div>
+                                </div>
+                                <div class="d-flex flex-row" style="width: 100%;height: 33%;">
+                                    <h5 class="d-flex flex-row justify-content-center" style="width: 41%;height: 100%;;padding-top: 34px;padding-left: 8px;">Espèces:</h5>
+                                    <div class="d-flex flex-column justify-content-center" style="width: 59%;height: 100%;;padding-top: 10px;padding-left: 14px;">
+                                        <p style="margin-bottom: -3px;">Poule locale</p>
+                                        <p style="margin-bottom: -3px;">Pigeon</p>
+                                        <p style="margin-bottom: -3px;">Dindon</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="d-flex flex-column"  style="background-color: #D1F4F0;width: 57%;height: 100%;padding: 8px;gap: 2px;box-shadow: 0px 1px 1px 1px #000000">
+                                <div class="d-flex flex-row" style="width: 100%;height: 15%;">
+                                    <h5 class="d-flex flex-row justify-content-center" style="width: 100%;height: 100%;padding-top: 11px;padding-left: 8px;">Matériaux:</h5>
+                                    
+                                </div>
+                                <div class="d-flex flex-row" style="width: 100%;height: 10%;">
+                                    <h5 class="d-flex flex-row justify-content-center" style="width: 41%;height: 100%;padding-top: 3px;padding-left: 8px;">Parois:</h5>
+                                    <div class="d-flex flex-column justify-content-center" style="width: 59%;height: 100%;padding-top: 5px;padding-left: 14px;">
+                                        <p style="margin-bottom: -3px;">poutre de bois</p>
+                                      
+                                    </div>
+                                </div>
+                                <div class="d-flex flex-row" style="width: 100%;height: 10%;">
+                                    <h5 class="d-flex flex-row justify-content-center" style="width: 41%;height: 100%;padding-top: 3px;padding-left: 8px;">interieur:</h5>
+                                    <div class="d-flex flex-column justify-content-center" style="width: 59%;height: 100%;padding-top: 5px;padding-left: 14px;">
+                                        <p style="margin-bottom: -3px;">Tôle d’aluminium</p>
+                                    </div>
+                                </div>
+                                <div class="d-flex flex-row" style="width: 100%;height: 10%;">
+                                    <h5 class="d-flex flex-row justify-content-center" style="width: 41%;height: 100%;padding-top: 3px;padding-left: 8px;">Plateaux:</h5>
+                                    <div class="d-flex flex-column justify-content-center" style="width: 59%;height: 100%;padding-top: 5px;padding-left: 14px;">
+                                        <p style="margin-bottom: -3px;">Acier</p>
+                                    </div>
+                                </div>
+                                <div class="d-flex flex-row" style="width: 100%;height: 15%;">
+                                    <h5 class="d-flex flex-row justify-content-center" style="width: 100%;height: 100%;padding-top: 11px;padding-left: 8px;">Materiels:</h5>
+                                    
+                                </div>
+                                <div class="d-flex flex-row" style="width: 100%;height: 10%;">
+                                    <h5 class="d-flex flex-row justify-content-center" style="width: 41%;height: 100%;padding-top: 3px;padding-left: 8px;">Moteur:</h5>
+                                    <div class="d-flex flex-column justify-content-center" style="width: 59%;height: 100%;padding-top: 5px;padding-left: 14px;">
+                                        <p style="margin-bottom: -3px;">Pas à pas 250v</p>
+                                      
+                                    </div>
+                                </div>
+                                <div class="d-flex flex-row" style="width: 100%;height: 10%;">
+                                    <h5 class="d-flex flex-row justify-content-center" style="width: 41%;height: 100%;padding-top: 3px;padding-left: 8px;">Chauffage:</h5>
+                                    <div class="d-flex flex-column justify-content-center" style="width: 59%;height: 100%;padding-top: 5px;padding-left: 14px;">
+                                        <p style="margin-bottom: -3px;">Ampoule </p>
+                                      
+                                    </div>
+                                </div>
+                                <div class="d-flex flex-row" style="width: 100%;height: 10%;">
+                                    <h5 class="d-flex flex-row justify-content-center" style="width: 41%;height: 100%;padding-top: 3px;padding-left: 8px;">ventilation:</h5>
+                                    <div class="d-flex flex-column justify-content-center" style="width: 59%;height: 100%;padding-top: 5px;padding-left: 14px;">
+                                        <p style="margin-bottom: -3px;">Ventillo xxx</p>
+                                      
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+                <div class="d-flex flex-column justify-content-center" style="background-color: #FFFFFF;width: 55%;height: 500px;gap: 4px;box-shadow: 0px 1px 1px 1px #000000;">
+                    <h5 class="shadow" style="text-align: center;font-weight: bold; background-color: #FAFF07;border-radius: 8px;">Perspectives</h5>
+                    <div class="d-flex flex-row justify-content-center" style="background-color: #FFFFFF;width: 100%;height: 31%;gap: 2%; box-shadow: 0px 1px 1px 1px #000000">
+                        <div  style="background-color: #FFFFFF; width: 50%;height: 94%;padding-left: 6%;">
+                            
+                                <img src="../../../assets/logPresentation.png" alt="" style="height: 100%;width: 90%;border-radius: 50%;">
+
+                        </div>
+                        <div class="d-flex flex-column justify-content-center" style="background-color: #FFFFFF; width: 30%;">              
+                            <h5>Vue de face</h5>
+                        </div>
+                    </div>
+
+                    <!-- 2 -->
+                   
+                    <div class="d-flex flex-row justify-content-center" style="background-color: #FFFFFF;width: 100%;height: 31%;gap: 2%; box-shadow: 0px 1px 1px 1px #000000">
+                        <div  style="background-color: #FFFFFF; width: 50%;height: 94%;padding-left: 6%;">
+                        
+                                <img src="../../../assets/logPresentation.png" alt="" style="height: 100%;width: 90%;border-radius: 50%;">
+                             
+                        </div>
+                        <div class="d-flex flex-column justify-content-center" style="background-color: #FFFFFF; width: 30%;">              
+                            <h5>Vue de Gauche</h5>
+                            
+                        </div>
+                    </div>
+                    <!-- 3 eme vue -->
+                    
+                    <div class="d-flex flex-row justify-content-center" style="background-color: #FFFFFF;width: 100%;height: 31%;gap: 2%; box-shadow: 0px 1px 1px 1px #000000">
+                        <div  style="background-color: #FFFFFF; width: 50%;height: 94%;padding-left: 6%;">
+                            
+                                <img src="../../../assets/logPresentation.png" alt="" style="height: 100%;width: 90%;border-radius: 50%;">
+                             
+                        </div>
+                        <div class="d-flex flex-column justify-content-center" style="background-color: #FFFFFF; width: 30%;">              
+                            <h5>Vue de dessus</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Popup modification mot de passe -->
+<div class="modal modal-md fade" id="exampleModalPassword" aria-hidden="true" aria-labelledby="exampleModalPassword"
+    tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content shadow" style="background-color: #D1F4F0;">
+            <div class="modal-header shadow" style="background-color: #D1F4F0;">
+                <h5 class="modal-title border text text-center shadow " id="exampleModalPassword"
+                    style="margin: 0 90px;padding: 5px; min-width: 300px; border-radius: 10px;">Modifier votre mot de
+                    passe</h5>
+                <!-- <button type="button" class="btn-close border bg-danger" data-bs-dismiss="modal" aria-label="Close" style=" min-width: 20px;"></button> -->
+            </div>
+            <div class="modal-body d-flex justify-content-center">
+                &nbsp;
+                <app-modif-password></app-modif-password>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- popup pour modifier affichage sidebar droit (espece, nombre d'oeufs) -->
+<div class="modal  fade" id="exampleModal" aria-hidden="true" aria-labelledby="exampleModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header d-flex flex-row justify-content-center">
+                <h5 class="modal-title shadow h-100" id="exampleModal" style="text-align: center;  width: 98%;font-weight: bold;background-color: #FFFFFF;">Modification information cycle</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body d-flex justify-content-center shadow h-100"style="background-color: #FFFFFF; opacity: 1; height: 100%; width: 100%;">
+                <div class="d-flex flex-column justify-content-center" style="background-color: #D1F4F0;width: 95%;height: 50%;padding: 2% 2%;;margin-bottom: 10px; gap: 7px;">
+                    <p class=" text-danger" *ngIf="notChoise">Veillez selectionnez</p>
+                    <form [formGroup]="cycleForm" class="d-flex flex-column justify-content-center shadow h-100"> 
+                        <div class="d-flex flex-column justify-content-center " style="width: 90%; margin: 0 auto;gap: 30px;padding: 4%;padding-left: 19%;">
+                            <div class="d-flex flex-column justify-content-center">
+                                <p style="height: 20px; margin-bottom: 5px;font-weight: bold; font-size: 14px;">Nombre d'oeufs</p>
+                                <div class="input-group " style="width: 75%;">
+                                    <select class="form-select form-select-sm" aria-label=".form-select-sm example"
+                                    id="inputGroupSelect01" formControlName="nombre"> 
+                                    <option selected="selected" value="{{soir}}">{{soir}}</option>
+                                    <option selected value="17">Dindon</option>
+                                    <option value="18">Poule locale</option>
+                                    <option value="19">Pigeon</option>
+                                    </select>
+                                </div> 
+                                <!-- <div class="input-group " style="width: 100%; border: none;">
+                                   <input type="number" value="13" style="width: 75%;">
+                                </div> -->
+                            </div>
+                            
+                            <div class="d-flex flex-column justify-content-center">
+                                <p style="height: 20px;margin-bottom: 5px; font-weight: bold;font-size: 14px;">Espèce</p>
+                                <div class="input-group " style="width: 75%;">
+                                    <select class="form-select form-select-sm" aria-label=".form-select-sm example"
+                                    id="inputGroupSelect01" formControlName="espece"> 
+                                    <option selected="selected" value="{{soir}}">{{soir}}</option>
+                                    <option selected value="17">Dindon</option>
+                                    <option value="18">Poule locale</option>
+                                    <option value="19">Pigeon</option>
+                                    </select>
+                                </div> 
+                            </div>
+                                        
+                        </div>
+
+                        <button class="mt-4" style="width: 60%;text-align: center; background-color: #FAFF07;height: 30px; border-bottom-right-radius: 17px;border-top-left-radius: 17px;color: #000000;font-weight: bold; margin-left: 20%;">Appliquer</button>
+                    </form> 
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- popup pour l'enregistrement des données du cycle en fin de couvaison -->
+<div class="modal  fade" id="exampleModal2" aria-hidden="true" aria-labelledby="exampleModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header d-flex flex-row justify-content-center">
+                <h5 class="modal-title shadow h-100" id="exampleModal" style="text-align: center;  width: 98%;font-weight: bold;background-color: #FFFFFF;">Enregistrement des informations de cycle</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body d-flex justify-content-center shadow h-100"style="background-color: #FFFFFF; opacity: 1; height: 100%; width: 100%;">
+                <div class="d-flex flex-column justify-content-center" style="background-color: #D1F4F0;width: 95%;height: 50%;padding: 2% 2%;;margin-bottom: 10px; gap: 7px;">
+                    
+                    <form   class="d-flex flex-column justify-content-center shadow h-100"> 
+                        <div class="d-flex flex-column justify-content-center " style="width: 90%; margin: 0 auto;gap: 30px;padding: 4%;padding-left: 19%;">
+                            <!-- Le nombre d'oeufs à couver -->
+                            <div class="d-flex flex-column justify-content-center">
+                                <p style="height: 20px; margin-bottom: 5px;font-weight: bold; font-size: 14px;">Nombre d'oeufs</p>
+                                <div class="input-group " style="width: 75%; ">
+                                    <select class="form-select form-select-sm" aria-label=".form-select-sm example"id="inputGroupSelect01" formControlName="nombre"> 
+                                    <option selected="selected" value="{{matin}}">{{matin}}</option> 
+                                    <option selected="selected" value="1">1</option>
+                                    <option value="2">2</option><option value="3">3</option>
+                                    <option value="4">4</option><option value="5">5</option>
+                                    <option value="6">6</option><option value="7">7</option>
+                                    <option value="8">8</option><option value="9">9</option>
+                                    <option value="10">10</option><option value="11">11</option>
+                                    <option value="12">12</option><option value="13">13</option>
+                                    <option value="14">14</option><option value="15">15</option>
+                                    <option value="16">16</option><option value="17">17</option>
+                                    <option value="18">18</option><option value="19">19</option>
+                                    <option value="20">20</option><option value="21">21</option>
+                                    <option value="22">22</option><option value="23">23</option>
+                                    <option value="24">24</option><option value="25">25</option>
+                                    <option value="26">26</option><option value="27">27</option>
+                                    <option value="28">28</option><option value="29">29</option>
+                                    <option value="30">30</option><option value="31">31</option>
+
+                                    <option value="32">32</option><option value="33">33</option>
+                                    <option value="34">34</option><option value="35">35</option>
+                                    <option value="36">36</option><option value="37">37</option>
+                                    <option value="38">38</option><option value="39">39</option>
+                                    <option value="40">40</option><option value="41">41</option>
+                                    <option value="42">42</option><option value="43">43</option>
+                                    <option value="44">44</option><option value="45">45</option>
+                                    <option value="46">46</option><option value="47">47</option>
+                                    <option value="48">48</option><option value="49">49</option>
+                                    <option value="50">50</option><option value="51">51</option>
+                                    <option value="52">22</option><option value="53">53</option>
+                                    <option value="54">54</option><option value="55">55</option>
+                                    <option value="56">56</option><option value="59">57</option>
+                                    <option value="58">58</option><option value="59">59</option>
+                                    <option value="58">60</option>
+                                    
+                                    </select> 
+                                    <!-- <input type="number" value="{{matin}}" style="width: 75%; border: none;"> -->
+                                </div>
+                            </div>
+                            <!-- L'espece à couver -->
+                            <div class="d-flex flex-column justify-content-center">
+                                <p style="height: 20px;margin-bottom: 5px; font-weight: bold;font-size: 14px;">Espèce</p>
+                                <div class="input-group " style="width: 75%;">
+                                    <select class="form-select form-select-sm" aria-label=".form-select-sm example"
+                                    id="inputGroupSelect01" formControlName="espece"> 
+                                    <option selected="selected" value="{{matine}}">Dindon</option>
+                                    <option selected value="17">Pigeon</option>
+                                    <option value="18">Poule locale</option>
+                                    <!-- <option value="19">Dindon</option> -->
+                                    </select>
+                                </div> 
+                            </div>
+                            <!-- Le taux d'eclosion -->
+                            <div class="d-flex flex-column justify-content-center">
+                                <p style="height: 20px;margin-bottom: 5px; font-weight: bold;font-size: 14px;">Taux d'éclosion</p>
+                                <div class="input-group " style="width: 100%;">
+                                    <input type="number" style="width: 75%; border: none;" formControlName="taux">
+                                    <!-- <p class=" text-danger" *ngIf="!notChoise">Veillez donner une valeur !</p> -->
+                                </div> 
+                            </div>
+                            <!-- Numéro du cycle -->
+                            <div class="d-flex flex-column justify-content-center">
+                                <p style="height: 20px;margin-bottom: 5px; font-weight: bold;font-size: 14px;"> Numéro cycle</p>
+                                <div class="input-group " style="width: 100%;">
+                                    <input type="number" style="width: 75%; border: none;" formControlName="numcycle">
+                                </div> 
+                            </div>
+                                        
+                        </div>
+
+                        <button  
+                        class="mt-4"style="width: 60%;text-align: center; background-color: #FAFF07;height: 30px; border-bottom-right-radius: 17px;border-top-left-radius: 17px;color: #000000;font-weight: bold; margin-left: 20%;">Sauvegarder</button>
+                    </form> 
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

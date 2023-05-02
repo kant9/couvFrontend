@@ -1,0 +1,105 @@
+<div class="d-flex flex-column justify-content-center" id="contenerDash">
+   
+    <div class="d-flex flex-column justify-content-center" id="sectionRtime">
+         <h5 style=" height: 15%;">Données en temps réel</h5>
+       <div style="height: 75%;" class="d-flex flex-row justify-content-center " id="bloc1">
+        <div class="d-flex flex-column justify-content-center" id="sectTemp">
+            <p>Température</p>
+            <div class="d-flex flex-row justify-content-center" id="secIconetCIRCULAIRE">
+                <span id="sectionicones">
+                    <img  src="../../../assets/temIcon.png" alt="" class="icones">
+                </span>
+                <div class="d-flex justify-content-center" id ="circular">
+                    <circle-progress 
+                  [percent]= "74"
+                  [radius]="41"
+                  [outerStrokeWidth]="5"
+                  [innerStrokeWidth]="4"
+                  [outerStrokeColor]="'#000000'"
+                  [innerStrokeColor]="'#F44336'"
+                  [animation]="false"
+                  units="°C"
+                  [animationDuration]="300" class="cirTemp">
+                </circle-progress> 
+                </div>
+                
+            </div> 
+        </div>
+            <div class="d-flex flex-column justify-content-center" id="sectTemp">
+                <p>Humidité</p>
+                <div class="d-flex flex-row justify-content-center" id="secIconetCIRCULAIRE">
+                    <span id="sectionicones">
+                        <img  src="../../../assets/humiIcon.png" alt="" class="icones">
+                    </span>
+                    <div class="d-flex justify-content-center" id ="circular">
+                        <circle-progress 
+                      [percent]= "74"
+                      [radius]="41"
+                      [outerStrokeWidth]="5"
+                      [innerStrokeWidth]="4"
+                      [outerStrokeColor]="'#000000'"
+                      [innerStrokeColor]="'#007CEE'"
+                      [animation]="false"
+                      units="%"
+                      [animationDuration]="300" class="cirTemp">
+                    </circle-progress> 
+                    </div>
+                    
+                </div> 
+            </div>
+            <div class="d-flex flex-column justify-content-center" id="sectTemp">
+                  <p>Niveau d'eau</p>
+                <div class="d-flex flex-row justify-content-center" id="secIconetCIRCULAIRE">
+                    <span class="d-flex flex-column justify-content-center" id="sectionicones">
+                        <p id="sectionicones" style="margin-top: 28px; margin-left: 8px;" >83%</p>
+                    </span>
+                   <!-- <circle-progress
+                      [percent]= "35"
+                      [radius]="40"
+                      [outerStrokeWidth]="5"
+                      [innerStrokeWidth]="4"
+                      [outerStrokeColor]="'#000000'"
+                      [innerStrokeColor]="'#AADA48'"
+                      [animation]="false"
+                      units="°C"
+                      [animationDuration]="300" class="cirTemp">
+                  </circle-progress> -->
+                  <div class="d-flex justify-content-center" id ="circular">
+                   <img style="margin-top: 6px; height: 93%;" src="../../../assets/reservoirPlein.png" alt="" class="d-flex flex-column justify-content-center" > 
+                  </div>
+                </div> 
+            </div>
+        </div>
+    </div>
+
+    <div class="d-flex flex-column justify-content-center" id="sectionGraph">
+        <div class="d-flex flex-column justify-content-center" style="text-align: center;">
+            <h5>Evolution de données au cours du cycle</h5>
+        </div>
+        <div class="d-flex flex-row justify-content-center" id="contGraph">
+            <div class="d-flex flex-column justify-content-center" id="g">
+                <div class="charts">
+
+                    <div class="line" [chart]="lineChart"></div>
+                
+                </div>
+                <p>Températures moyennes journalieres</p>
+            </div>
+            <div class="d-flex flex-column justify-content-center" id="d">
+                <div class="charts">
+
+                    <div class="line" [chart]="lineChart2"></div>
+                
+                </div>
+                <p>Humidité moyennes journalieres</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+                  

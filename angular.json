@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "couvFrontend": {
+    "SerreFront": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/couv-frontend",
+            "outputPath": "dist/serre-front",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -30,9 +30,13 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "node_modules/bootstrap/scss/bootstrap.scss",
+              "./node_modules/font-awesome/css/font-awesome.css",
+             "src/styles.scss",
+             "node_modules/ngx-toastr/toastr.css"
+              
             ],
-            "scripts": []
+            "scripts": ["node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"]
           },
           "configurations": {
             "production": {
@@ -65,10 +69,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "couvFrontend:build:production"
+              "browserTarget": "SerreFront:build:production"
             },
             "development": {
-              "browserTarget": "couvFrontend:build:development"
+              "browserTarget": "SerreFront:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -76,7 +80,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "couvFrontend:build"
+            "browserTarget": "SerreFront:build"
           }
         },
         "test": {
@@ -101,7 +105,9 @@
       }
     }
   },
+  
   "cli": {
-    "analytics": "40a9a420-7972-43a5-b11c-3923d7392436"
+    "analytics": "280f2a49-af4a-4b0a-80f2-f380a5e60723"
   }
+ 
 }

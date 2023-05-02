@@ -1,1 +1,137 @@
-<p>tableau works!</p>
+<div class="titre" *ngIf="!showFormPass" style="margin-bottom: 18px;">
+  Historique des données de la couveuse
+</div>
+
+<div *ngIf="!showFormPass" class=" shadow-none   bg-light rounded" id="haut">
+  
+  <!-- /recherche/  et symbole de la redirection-->
+  <div class="d-flex flex-row justify-content-around  h-25" style=" width: 70%;margin:0 auto;gap: 50%; margin-bottom: 17px;">
+    <input type="date" id="form1" class="form-control " (change)="search($event)"
+        style="border: 2px solid; width: 17%; margin:auto 0px; max-height:50px" />
+  
+    <div class="d-flex justify-content-center" style="width: 2%;height: 50px;">
+      <img src="../../../assets/cycle.png" alt="" height="50x" class="d-flex justify-content-center rounded-circle pe-auto" title="Histo-Cycles" (click)="onclick()" role="button">
+    </div>
+  </div>
+  <!-- /recherche/  et symbole de la redirection FIN-->
+    <div class="d-flex justify-content-center  w-75 mb-4" style="margin:0 auto">
+      <table class="table table-bordered " style="border: 2px solid ;">
+
+        <thead class="bag">
+
+          <tr>
+            <th scope="col"><p> Date<img src="assets/calen.web" alt="" ></p> </th> 
+            <!-- <th scope="col">Heure</th> -->
+            <th scope="col"><i class="bi bi-thermometer-half"></i><p> Temperature<img src="assets/tour.png" alt=""
+                style="max-height: 15px;background: #000; "></p> </th>
+            <th scope="col"> <i class="bi bi-droplet-half"></i><p style="margin-top: 11px;">Humidite <img src="assets/one.png" alt=""
+                style="max-height: 15px;background: #000;"></p> </th>
+
+          </tr>
+        </thead>
+        <tbody>
+        
+          <tr *ngFor="let i of dataSerreInfo| filter:searchText | paginate: { itemsPerPage:  itemsperpage, currentPage: p}">
+            <!-- <th rowspan="3" scope="row" class="text-center">Temperature en °C</th> -->
+            <td><p>{{i.dateInsertion | date}}</p></td>
+            <td><p>{{i.temp}}</p></td>
+            <td><p>{{i.hum}}</p></td>
+
+          </tr>
+        </tbody>
+      </table>
+      <!-- <tr style="margin-bottom: 2%;" class="" *ngFor="let i of histo| filter: searchText | paginate: { itemsPerPage:  itemsperpage, currentPage: p}">
+        
+          <div class="pagination fixed-bottom justify-content-center">
+            <pagination-controls (pageChange)="p = $event"></pagination-controls> 
+          </div>
+      </tr> -->
+
+        <tr class="" *ngFor="let i of dataSerreInfo| filter: searchText | paginate: { itemsPerPage:  itemsperpage, currentPage: p}">
+       
+          <div class="pagination fixed-bottom justify-content-center">
+            <pagination-controls (pageChange)="p = $event"></pagination-controls> 
+          </div>
+      </tr>
+       
+       
+    </div>
+
+</div>
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+  <!-- /Historique de  l'ensoleillement et humidités de sol de la Serre/// -->
+  <div class="titre" *ngIf="showFormPass" style="margin-bottom: 18px;">
+    Historique des données de la couveuse
+  </div>
+
+  <div *ngIf="showFormPass" class=" mb-4 shadow-none   bg-light rounded" id="haut">
+    
+    <!-- /recherche/ -->
+    <div class="d-flex flex-row justify-content-around  h-25" id="rechEtlien" style=" width: 70%;margin:0 auto;gap: 50%; margin-bottom: 17px;">
+      <input  type="date" id="form1" class="form-control " (change)="search($event)"
+          style="border: 2px solid; width: 17%; margin:auto 0px; max-height:50px" />
+      <div class="d-flex justify-content-center" style="width: 2%;height: 50px;">
+        <img src="../../../assets/LienTH.png" alt="" height="50x" class="d-flex justify-content-center rounded-circle pe-auto" title="Histo-Hum/Temperature" (click)="on()" role="button">
+      </div>
+      
+    <!-- <img src="assets/humSol.png" class="rounded-circle pe-auto" title="Humidite temperature" (click)="on()" role="button" > -->
+    </div>
+  
+  
+      <div class="d-flex justify-content-center  w-75 mb-1" style="margin:0 auto">
+        <table class="table table-bordered " style="border: 2px solid ;">
+  
+          <thead class="bag">
+  
+            <tr>
+              <th scope="col"><p style="margin-top: 11px;"> Date<img src="assets/calen.web" alt="" ></p> </th> 
+              <th scope="col"><i class="bi bi-thermometer-half"></i><p style="margin-top: 11px;"> Cycle<img src="assets/tour.png" alt=""
+                  style="max-height: 15px;background: #000; "></p> </th>
+              <th scope="col"> <i class="bi bi-droplet-half"></i><p style="margin-top: 11px;">Espèce <img src="assets/one.png" alt=""
+                  style="max-height: 15px;background: #000; "></p> </th>
+              <th scope="col"> <i class="bi bi-droplet-half"></i><p style="margin-top: 11px;">Nombre d'oeufs <img src="assets/one.png" alt=""
+                  style="max-height: 15px;background: #000; "></p> </th>
+              <th scope="col"> <i class="bi bi-droplet-half"></i><p style="margin-top: 11px;">Taux d'eclosion <img src="assets/one.png" alt=""
+                  style="max-height: 15px;background: #000; "></p> </th>
+  
+            </tr>
+          </thead>
+          <tbody>
+          
+            <tr *ngFor="let en of dataSerreInfo| filter:searchText | paginate: { itemsPerPage:  itemsperpage, currentPage: p}">
+              <!-- <th rowspan="3" scope="row" class="text-center">Temperature en °C</th> -->
+              <td><p>{{en.dateInsertion }}</p></td>
+              <td><p>{{en.sol}}</p></td>
+              <td><p>{{en.lum}}</p></td>
+            </tr>
+          </tbody>
+        </table>
+        <tr style="margin-bottom: 2%;" class="" *ngFor="let i of histo| filter: searchText | paginate: { itemsPerPage:  itemsperpage, currentPage: p}">
+          <!-- <div class=""> -->
+            <div class="pagination fixed-bottom justify-content-center">
+              <pagination-controls (pageChange)="p = $event"></pagination-controls> 
+            </div>
+        </tr>
+          <!-- </div> -->
+      </div>
+ 
+  </div>
+
+
+
+  
+  
+  

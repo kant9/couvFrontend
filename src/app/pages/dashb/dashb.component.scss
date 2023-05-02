@@ -1,0 +1,343 @@
+#contenerDash
+{
+    width: 100%;
+    height: 80vh;
+    background-color: #D1F4F0;
+    // border: 1px solid black;
+    display: flex;flex-direction: column;
+    gap: 17px;
+  
+    
+}
+
+
+#sectionRtime
+{
+    background-color: #FFFFFF; 
+    height: 40%;
+    width: 100%;
+    box-shadow: 1px 2px 2px 2px #000000;
+    padding: 4px;
+    border-radius: 10px;
+    text-align: center;
+    padding-bottom: 15px;
+     
+
+}
+// // contener des sections temp,hum,niveau d'eau
+#bloc1
+{
+    // border: 0.2px solid black;
+    width: 100%;
+     height: 75%;
+    padding: 10px;
+     background-color: #FFFFFF;
+     border-radius: 10px;
+     display: flex;
+     flex-direction: row;
+     gap: 12px;
+}
+
+
+
+#sectTemp
+{
+    width: 33%;
+    height: 100%;
+    background-color: #FFFFFF;
+    box-shadow: 1px 4px 6px #000000; 
+    // border: 1px solid black;
+    padding-top: -3px;
+    display: flex;flex-direction: column;
+    gap: 5px;
+    border-radius: 4px;
+}
+
+#secIconetCIRCULAIRE
+{
+    margin-top: -23px;
+    display: flex; flex-direction: row;
+    gap: 4px;
+    padding-top: 1px;
+    margin-left: 9.5%;
+    background-color: #FFFFFF;height: 91%; width: 80%; 
+}
+
+p
+{
+    font-weight: bold; 
+}
+
+#sectionGraph
+{
+    background-color: #FFFFFF;
+    height: 350px;
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 1px 2px 2px 2px #000000;
+    padding: 7px;
+    gap: 2px;
+  
+}
+
+#contGraph
+{
+    // background-color: #FFFFFF; 
+    background-color: #FFFFFF;
+    text-align: center;
+    height: 98%;
+    width: 98%;
+    padding: 8px;
+    padding-top: 9px;
+    display: flex;flex-direction: row;
+    gap: 7px;
+    
+}
+
+#g{
+    width: 50%;
+    height: 100%;
+    background-color: #FFFFFF;
+    box-shadow: 1px 2px 2px  #4b4747;
+}
+
+#d{
+    width: 50%;
+    height: 100%;
+    background-color:#FFFFFF;
+    box-shadow: 1px 2px 2px  #4b4747;
+}
+.charts{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+   background-color: #FFFFFF;
+    font-size: 5px;
+    height: 100%;width: 100%;box-shadow: 1px 2px 2px  #4b4747;
+    
+}
+
+
+
+.line {
+  height: 100%;
+  width:98%;
+  border-radius: 5px;
+//   box-shadow: 10px 10px 5px #aaaaaa;
+  font-size: 10px;
+  font-weight: bold;
+
+}
+
+
+
+#sectionicones
+{
+    height: 83px;
+    width: 21%;background-color: #FFFFFF;
+    // padding-left: 40px;
+}
+
+.icones
+{
+    width: 50px;height: 70px; margin-top: 7px;
+}
+
+#circular
+{
+    width: 43%;height: 83px; background-color: #FFFFFF; padding-top: -14px; 
+}
+
+
+
+
+.topbar{
+
+    height: 30px;
+   display: flex;
+
+   font-size: 13px;
+   margin-top: 10px;
+   align-items: center;
+}
+
+.topbar span{
+
+    margin-left:50px;
+    margin-top: 10px;
+}
+
+.doctor{
+
+    background-color: #00adb5;
+    padding: 10px;
+    color: white;
+    border-radius: 20px;
+    width: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.medical{
+
+    padding: 10px;
+    border-radius: 20px;
+    width: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border: 1px solid #333;
+}
+.healthcare{
+    padding: 10px;
+    border-radius: 20px;
+    width: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border: 1px solid #333;
+}
+
+.health{
+    padding: 10px;
+    border-radius: 20px;
+    width: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border: 1px solid #333;
+
+}
+.container {
+
+    display: flex;
+    justify-content: space-between;
+   
+ 
+}
+.profile{
+
+    height: 80vh;
+    margin: 30px;
+    border-radius: 10px;
+    width: 20%;
+    box-shadow: 10px 10px 5px #aaaaaa;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.profile img{
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+    margin-top: 20px;
+
+
+}
+
+.profile span{
+
+    margin: 10px;
+}
+
+.profile span:nth-child(3){
+
+    color: green;
+    animation: inProgress 1s ease alternate infinite;
+}
+
+@keyframes inProgress {
+    
+    from{
+
+        opacity: 0;
+    }
+
+    to{
+
+        opacity: 1;
+    }
+}
+
+.appointment{
+    background-color: #00adb5;
+    border: none;
+    padding: 10px;
+    color: #fff;
+    width: 150px;
+    cursor: pointer;
+}
+
+.drugs{
+
+    margin: 20px;
+    background-color: #00adb5;
+    border: none;
+    padding: 10px;
+    color: #fff;
+    width: 150px;
+    cursor: pointer;
+}
+
+.logout{
+
+    margin: 20px;
+    background-color: #d1411e;
+    border: none;
+    padding: 10px;
+    color: #fff;
+    width: 150px;
+    cursor: pointer;
+}
+
+.feeds{
+    margin-top: 20px;
+   
+}
+
+.feeds-item{
+
+   background-color: #fff;
+   padding: 20px;
+margin: 20px;
+   width: 100%;
+   border-radius: 5px;
+   height: 50px;
+  
+}
+
+
+
+.feeds-item{
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    height: 100px;
+    border-radius: 0px;
+    width: 100%;
+   
+}
+
+.feeds-item span{
+
+    margin: 3px;
+}
+.header{
+
+    font-size: 15px;
+    font-weight: bold;
+}
+.time{
+
+    color: #d1411e;
+    font-size: 12px;
+}

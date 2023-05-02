@@ -1,0 +1,253 @@
+<!-- Conteneur principal dashboard -->
+<div class="d-flex flex-column p-2 bd-highlight" id="conteneurDash" *ngIf="!showHistorique"> 
+ 
+  <div class="d-flex flex-column" id="BlocHaute">
+      <h6 class="thhe">Données de la serre à l’instant</h6>
+      <div class="d-flex flex-row" id="sectionsParam">
+          <!-- section Temperature -->
+
+            <div class="d-flex flex-column"  id="sectTemp">
+                <p class="thhe">Température</p>
+                <div class="d-flex flex-row" id="contCircularTempetIconTemp">
+                  <!-- Je mets ici ce qui déclenche le popup info serre -->
+                  <img [src]="image3Histo" alt="" class="iconeTemp" (click)="openPopupInfo()">
+                  <!-- <p class="cirTemp">circularProgressBar</p> -->
+                  <circle-progress
+                      [percent]="38.5"
+                      [radius]="40"
+                      [outerStrokeWidth]="5"
+                      [innerStrokeWidth]="4"
+                      [outerStrokeColor]="'#000000'"
+                      [innerStrokeColor]="'#F44336'"
+                      [animation]="false"
+                      units="°c"
+                      [animationDuration]="300" class="cirTemp">
+                  </circle-progress>
+                </div>
+            </div>
+          <!-- section Humidité -->
+            <div class="d-flex flex-column"  id="sectHum">
+                <p class="thhe">Humidité</p>
+                <div class="d-flex flex-row" id="contCircularTempetIconTemp">
+                  <img [src]="image4Histo" alt="" class="iconHumEns">
+                  <!-- <p class="cirTemp">circularProgressBar</p> -->
+                  <circle-progress
+                      [percent]="85"
+                      [radius]="40"
+                      [outerStrokeWidth]="5"
+                      [innerStrokeWidth]="4"
+                      [outerStrokeColor]="'#000000'"
+                      [innerStrokeColor]="'#007CEE'"
+                      [animation]="false"
+                      [animationDuration]="300" class="cirTemp">
+                  </circle-progress>
+                </div>
+            </div>
+          <!-- section Humidité sol -->
+            <div class="d-flex flex-column"  id="sectHumSol">
+                <p class="thhe">Humidité sol </p>
+                <div class="d-flex flex-row" id="contCircularTempetIconTemp">
+                  <img [src]="image2Histo" alt="" class="iconHumEns">
+                  <!-- <p class="cirTemp">circularProgressBar</p> -->
+                  <circle-progress
+                      [percent]= "realtimeSol"
+                      [radius]="40"
+                      [outerStrokeWidth]="5"
+                      [innerStrokeWidth]="4"
+                      [outerStrokeColor]="'#000000'"
+                      [innerStrokeColor]="'#AADA48'"
+                      [animation]="false"
+                      [animationDuration]="300" class="cirTemp">
+                      [responsive]="true"
+                  </circle-progress>
+                </div>
+            </div>
+          <!-- section Luminosité -->
+            <div class="d-flex flex-column"  id="sectLum">
+                <p class="thhe">Luminosité serre</p>
+                <div class="d-flex flex-row" id="contCircularTempetIconTemp">
+                  <img [src]="image1Histo" alt="" class="iconHumEns">
+                  <!-- <p class="valLuminosité">{{ObjetJSON.val4}}</p> -->
+                  <circle-progress
+                      [percent]= "realtimeLum"
+                      [radius]="40"
+                      [outerStrokeWidth]="5"
+                      [innerStrokeWidth]="4"
+                      [outerStrokeColor]="'#000000'"
+                      [innerStrokeColor]="'#AADA48'"
+                      [animation]="false"
+                      [animationDuration]="300" class="cirTemp">
+                  </circle-progress>
+                </div>
+            </div>
+      </div>
+
+
+  </div>  
+  <div class="blocb" style="background-color: #FFFFFF;height: 250px;">
+      <!-- Fin du bloc haut/ debut bloc bas-->
+  <div class="d-flex flex-row" id="Blocbasse">
+    <!-- Colone gauche (historique) -->
+      <div class="d-flex flex-column" id="clonGauche">
+          <p class="thhe">Historique données</p>
+          <div class="d-flex flex-column" id="ll" (click)="switchHistorique()">
+            <div class="sec1" id="noir1" >
+                <img [src]="image1Histo" alt="" class="iconHumEns">
+                <img [src]="image2Histo" alt="" class="iconHumEns">
+                <div class="sec1-layer_top sec1-layer_scale">
+                  <div class="sec1-text">Historique Hum_Sol(%)<br>Ensol(%)</div>
+                </div>
+            </div>
+            <div class="sec2" id="noir2" (click)="switchHistorique()">
+                <img [src]="image3Histo" alt="" class="iconeTemp">
+                <img [src]="image4Histo" alt="" class="iconHumEns">
+                <div class="sec2-layer_top sec2-layer_scale">
+                  <div class="sec2-text">Historique Temp(°c) <br>Hum(%)</div>
+                </div>
+            </div>
+          </div>
+      </div>
+      <!-- Colone centre (lampe, alarme,arrosage) -->
+      <div class="d-flex flex-column" id="clonCentre">
+         <p class="thhe">Fenetre de visualisation</p>
+         <div class="d-flex flex-row" id="contclon">
+            <div class="d-lex flex-column" id="premColon">
+              <p class="laa">Lampe</p>
+              <span  *ngIf="!lamp">
+                <img [src]="lampSerre" alt="" id="lampe">
+              </span>
+              <span  *ngIf="lamp" >
+                <img [src]="lampSerAlum" alt="" id="lampe2">
+              </span>     
+              <div class="form-check1 form-switch">
+                <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" (click)="switchLamp()">
+                <label class="form-check-label" for="flexSwitchCheckDefault"></label>
+              </div>
+            </div>
+            <!-- Alerte sonor -->
+            <div class="d-lex flex-column" id="deuxColon">
+              <!-- <span *ngIf="buzzerStatus">
+                <p class="laa">Alerte</p>
+                <img [src]="Alarm" alt="" id="buzzer">
+              </span> -->
+              <!-- <span *ngIf="!buzzerStatus">
+                <p class="laa">intruision</p>
+                <img [src]="AlarmGif" alt="" id="buzzer">
+              </span> -->
+
+              <span class="d-flew justify-content-center">
+                <p class="laa">Alerte</p>
+                <!-- <img [src]="Alarm" alt="" id="buzzer"> -->
+                <img *ngIf="!buzzerStatus" [src]="AlarmGif" alt="" id="buzzer">
+                <img *ngIf="buzzerStatus" src="../../../assets/icons8-alarm_1.gif" alt="" id="buzzer">
+
+              </span>
+            </div>
+            <!-- ARROSAGE -->
+            <div class="d-lex flex-column" id="TroixColon">
+              <p class="laa">Arrosage</p>
+              <span *ngIf="!aroz">
+                <img [src]="Arrosoir" alt="" id="arros">
+              </span>
+              <span *ngIf="aroz">
+                <img [src]="ArrosoirGif" alt="" id="arros">
+              </span>
+              <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" (click)="switchArros()">
+                <label class="form-check-label" for="flexSwitchCheckDefault"></label>
+              </div>
+            </div>
+         </div>
+      </div>
+      <!-- Colone Droite(portail et toit) -->
+      <div class="d-flex flex-column" id="clonDroite">
+        <p class="thhe">Gestion portail et toiture</p>
+        <div class="d-flex flex-row" id="contclon">
+           <div class="d-lex flex-column" id="premColonD">
+            <span *ngIf="!prt">
+              <p class="laa">Porte fermée</p>
+               <img [src]="portFerm" alt="" id="lampe">
+            </span>
+            <span *ngIf="prt">
+              <p class="laa">Porte ouverte</p>
+              <img src="../../../assets/doorOpen.jpg" alt="" id="lampe"> 
+            </span>
+             <div class="form-check2 form-switch">
+               <!-- <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" (click)="openPopup()" >
+               <label class="form-check-label" for="flexSwitchCheckDefault"></label> -->
+               <div class="row  ">
+                <div class="col-1 d-flex justify-content-center align-items-center">
+                    <div class="p-1 border shadow bg-light  rounded-circle" style="font-size: 0" role="button" title="Saisir le code d'acces">
+                      <svg data-bs-toggle="modal" href="#exampleModalCode" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-keyboard" viewBox="0 0 16 16">
+                        <path d="M14 5a1 1 0 0 1 1 1v5a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h12zM2 4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2H2z"/>
+                        <path d="M13 10.25a.25.25 0 0 1 .25-.25h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5a.25.25 0 0 1-.25-.25v-.5zm0-2a.25.25 0 0 1 .25-.25h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5a.25.25 0 0 1-.25-.25v-.5zm-5 0A.25.25 0 0 1 8.25 8h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5A.25.25 0 0 1 8 8.75v-.5zm2 0a.25.25 0 0 1 .25-.25h1.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-1.5a.25.25 0 0 1-.25-.25v-.5zm1 2a.25.25 0 0 1 .25-.25h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5a.25.25 0 0 1-.25-.25v-.5zm-5-2A.25.25 0 0 1 6.25 8h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5A.25.25 0 0 1 6 8.75v-.5zm-2 0A.25.25 0 0 1 4.25 8h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5A.25.25 0 0 1 4 8.75v-.5zm-2 0A.25.25 0 0 1 2.25 8h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5A.25.25 0 0 1 2 8.75v-.5zm11-2a.25.25 0 0 1 .25-.25h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5a.25.25 0 0 1-.25-.25v-.5zm-2 0a.25.25 0 0 1 .25-.25h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5a.25.25 0 0 1-.25-.25v-.5zm-2 0A.25.25 0 0 1 9.25 6h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5A.25.25 0 0 1 9 6.75v-.5zm-2 0A.25.25 0 0 1 7.25 6h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5A.25.25 0 0 1 7 6.75v-.5zm-2 0A.25.25 0 0 1 5.25 6h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5A.25.25 0 0 1 5 6.75v-.5zm-3 0A.25.25 0 0 1 2.25 6h1.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-1.5A.25.25 0 0 1 2 6.75v-.5zm0 4a.25.25 0 0 1 .25-.25h.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-.5a.25.25 0 0 1-.25-.25v-.5zm2 0a.25.25 0 0 1 .25-.25h5.5a.25.25 0 0 1 .25.25v.5a.25.25 0 0 1-.25.25h-5.5a.25.25 0 0 1-.25-.25v-.5z"/>
+                      </svg>
+                        <i class="bi bi-briefcase"></i>
+                    </div>
+                </div>
+                </div>
+             </div>
+           </div>
+           <div class="d-lex flex-column" id="deuxColonD">
+             <span *ngIf="!toi">
+               <p class="laa">Toiture fermée</p>
+               <img [src]="ToiFerm" alt="" id="buzzer">
+            </span>
+            <span *ngIf="toi" style="display: flex;flex-direction: column;">
+              <p class="laa">Toiture ouverte</p>
+              <img [src]="ToiFerm" alt="" id="buzzer" style="margin-left: 54px;margin-top: -12px;">
+              <img [src]="verin" alt="" id="verin">
+           </span>
+           </div>
+           
+        </div>
+      </div>
+  </div>
+  </div>
+
+</div>
+<app-tableau *ngIf="showHistorique"></app-tableau>
+
+<!-- LE POPUP POUR CODE DE DEVEROUILLAGE PORTE -->
+               
+<div class="modal" style="margin-top: 95px; width: 80%;height: 500px;margin-left: 240px; background-color: black;opacity: 0.9;" tabindex="-1"role="dialog"[ngStyle]="{'display':displayStyle}">
+    <div class="modal-dialog" role="document" style="background-color: black; height: 90%;width: 100%;padding: 30px;opacity: 1;">
+      <div class="modal-content" >
+        <div class="modal-header">
+          <button type="button" class="close" aria-label="Close" (click)="closePopup()">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body" style="background-color: white; opacity: 1;">
+          <form class="form-inline" style=" text-align: center;justify-content: center;">
+            <label style="font-weight: bold;color: #000000;">Entrez votre code </label>
+            <input type="text" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" placeholder="109AD " style="width: 50%;margin-left: 100px;">
+            <button type="submit" class="btn btn-primary mb-2">Ouvrir</button>
+          </form>
+
+        </div>
+        <div class="modal-footer">
+        </div>
+      </div>
+    </div>
+</div> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
