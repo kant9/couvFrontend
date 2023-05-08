@@ -1,10 +1,11 @@
 
 export interface Cycle {
-    _id?: any
+    _id?: any,
     nombre?: String,
     espece?: String,
-    taux?: String,
+    taux?: number,
     numcycle?: String,
-    message?:String
+    message?:String,
+    dateInsertion?: Date,
 }
 

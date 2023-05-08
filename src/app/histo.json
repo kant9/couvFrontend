@@ -54,6 +54,56 @@
         "date": "2023-03-13",
         "temperature": "37°C",  
         "humidite": "10%"
+    },
+
+    {
+    
+       
+        "date": "2023-04-10",
+        "temperature": "37°C",  
+        "humidite": "23%"
+    },
+    {
+    
+       
+        "date": "2023-03-03",
+        "temperature": "47°C",  
+        "humidite": "20%"
+    },
+    {
+    
+       
+        "date": "2023-03-03",
+        "temperature": "37°C",  
+        "humidite": "40%"
+    },
+    {
+    
+       
+        "date": "2023-03-14",
+        "temperature": "27°C",  
+        "humidite": "30%"
+    },
+    {
+    
+       
+        "date": "2023-03-12",
+        "temperature": "37°C",  
+        "humidite": "30%"
+    },
+    {
+    
+       
+        "date": "2023-03-23",
+        "temperature": "57°C",  
+        "humidite": "20%"
+    },
+    {
+    
+       
+        "date": "2023-03-13",
+        "temperature": "37°C",  
+        "humidite": "10%"
     }
 
 

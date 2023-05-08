@@ -1,8 +1,7 @@
 export interface Serre {
-    _id?: any
-    nombre?: String,
-    espece?: String,
-    taux?: String,
-    datinsertion?: String,
-    message?:String
+    temp?: Number,
+    hum?: Number,
+    lum?: Number,
+    sol?: Number,
+    date?: Date
 }

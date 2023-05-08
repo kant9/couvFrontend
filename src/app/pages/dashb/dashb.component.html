@@ -11,7 +11,7 @@
                 </span>
                 <div class="d-flex justify-content-center" id ="circular">
                     <circle-progress 
-                  [percent]= "74"
+                  [percent]= "realtimeTemp"
                   [radius]="41"
                   [outerStrokeWidth]="5"
                   [innerStrokeWidth]="4"
@@ -33,7 +33,7 @@
                     </span>
                     <div class="d-flex justify-content-center" id ="circular">
                         <circle-progress 
-                      [percent]= "74"
+                      [percent]= "realtimeHum"
                       [radius]="41"
                       [outerStrokeWidth]="5"
                       [innerStrokeWidth]="4"
@@ -51,7 +51,7 @@
                   <p>Niveau d'eau</p>
                 <div class="d-flex flex-row justify-content-center" id="secIconetCIRCULAIRE">
                     <span class="d-flex flex-column justify-content-center" id="sectionicones">
-                        <p id="sectionicones" style="margin-top: 28px; margin-left: 8px;" >83%</p>
+                        <p id="sectionicones" style="margin-top: 28px; margin-left: 8px;" >{{realtimeNivEau}} %</p>
                     </span>
                    <!-- <circle-progress
                       [percent]= "35"

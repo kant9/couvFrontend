@@ -55,15 +55,15 @@ export class LoginComponent  implements OnInit{
       return ;
     }
 
-    const user:User ={
+    const user:User ={ 
       email: this.registerForm.value.email,
       password: this.registerForm.value.password
     }
-    // console.log(user);
+    console.log(user);
     
     return this.authService.getConnexion(user).subscribe(
       res=>{
-          console.log(res);
+          // console.log(res);
           let infoConnexion = res;
           if(infoConnexion.data){
             // setTimeout(()=> this.router.navigateByUrl('home'), 1000);
@@ -81,8 +81,7 @@ export class LoginComponent  implements OnInit{
         
       }
     )
-    
-    
+
   }
 
   affich(){

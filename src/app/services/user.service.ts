@@ -6,6 +6,9 @@ import { HttpClient } from '@angular/common/http'
 import { Serre } from '../models/serre';
 import { Arrosage } from '../models/arrosage';
 import { Cycle } from '../models/cycle';
+import { Couveuse } from '../models/couveuse';
+
+import { MongoClient, ObjectId } from 'mongodb';
 
 
 
@@ -33,8 +36,7 @@ export class UserService {
     return this.currentUserSubject.value;
   }
 
-  //Connexion de l'utilisateur 
-
+  //SERVICE DE CONNEXION
   getConnexion(user:User){
     return this.httpClient.post<User>(`${environment.apiUrl}/api/login`,user).
       pipe(map(user => {
@@ -42,38 +44,57 @@ export class UserService {
         //Ceci permet de garder l'utilisateur connecté entre les differentes pages
         localStorage.setItem('currentUser', JSON.stringify(user.data?.token));
         localStorage.setItem('id', JSON.stringify(user.data?.userId));
-
         this.currentUserSubject.next(user);
         return user;
       }));
 
   }
 
+  // SERVICE DE MODIFICATION DU MOT DE PASSE
   update(id:any,user:User){
     return this.httpClient.patch<User>(`${environment.apiUrl}/api/update/${id}`,user)
   }
 
+  // SERVICE DE RECUPERATION DES INFOS DE LA COUVEUSE (TEMPERATURE,HUMIDITÉ, NIVEAU DEAU)
+  getCouveuse(){
+    return this.httpClient.get<Couveuse>(`${environment.apiUrl}/couveuse/`)
+  }
+
+  
+  
+
+  
+  // SERVICE D'INSERTION DES DONNÉES D'UN CYCLE DANS LA BDD
+  insertCycle(cycle:Cycle){
+    return this.httpClient.post<Cycle>(`${environment.apiUrl}/envDcycle`,cycle)
+  }
+
+  //SERVICE DE RECUPERATION DES DONNEES D'UN CYCLES
+  getCycle()
+  {
+    return this.httpClient.get<Cycle>(`${environment.apiUrl}/cycle`)
+  }
+
+  getmeteo()
+  {
+    return this.httpClient.get<Serre>(`${environment.apiUrl}/serr`)
+  }
+
+// SERVICE DE MODIFICATION DES DONNÉES DE LA SERRE
+  updatecycle(id:any,cycle:Cycle){
+    return this.httpClient.patch<Cycle>(`${environment.apiUrl}/updatecycle/${id}`,cycle)
+  }
+
+  
+
   getSerre(){
     return this.httpClient.get<Serre>(`${environment.apiUrl}/serre/`)
   }
-
-  updatecycle(id:any,cycle:Cycle){
-    return this.httpClient.patch<Arrosage>(`${environment.apiUrl}/updateArrosage/${id}`,cycle)
-  }
-
-  sauvegrder(cycle:Cycle){
-    return this.httpClient.patch<Cycle>(`${environment.apiUrl}/envDcycle`,cycle)
-    
-  }
-
-  getArrosage(){
-    return this.httpClient.get<Arrosage>(`${environment.apiUrl}/arrosage`)
-  }
-
-
-  // service pour modifier les donnees du cycle
-  updateArrosage(id:any,cycle:Cycle){
-    return this.httpClient.patch<Cycle>(`${environment.apiUrl}/updateArrosage/${id}`,cycle)
+  
+  //SERVICE DE RECUPERATION DES DONNEES DE TOUT LES CYCLES
+  getAllCycle()
+  {
+    return this.httpClient.get<Cycle>(`${environment.apiUrl}/allCycle`)
   }
   
 }
