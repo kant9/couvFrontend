@@ -79,7 +79,8 @@ import {ChartModule} from 'angular-highcharts'
 
   ],
   providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: JtwInterceptor, multi: true },SocketioService
+    { provide: HTTP_INTERCEPTORS,useClass: JtwInterceptor, multi: true},SocketioService, 
+    
   ],
   bootstrap: [AppComponent]
 })

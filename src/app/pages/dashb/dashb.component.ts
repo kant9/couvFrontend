@@ -6,8 +6,10 @@ import { environment } from 'src/environments/environment';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrService } from 'ngx-toastr';
+import { Moment } from 'moment';
 
 import { Chart } from 'angular-highcharts';
+import moment from 'moment';
 
 
 
@@ -18,31 +20,38 @@ import { Chart } from 'angular-highcharts';
 })
 export class DashbComponent implements OnInit {
   
+  tabData12hT: any[] = [];
+  tabData12hH: any[] = [];
   socket:any;
   realtimeTemp=0; realtimeHum=0; realtimeNivEau=0;
   ObjetJSON:any;
   buzzerStatus= false;
   registerForm!:FormGroup;
   closeResult = '';
-  r=0;
-  tbTemp=0;   tbHum:any; 
+ 
+  tbTemp=0;   tbHum:any;    r:any;  
   
+
   tabCurrentCycle:any;
 
+  tabHeur: any =null
   
   tabCurrentTH:any
   constructor(private socketService:SocketioService,  private formBuilder:FormBuilder,private modalService: NgbModal,private authService: UserService,  private toastr: ToastrService){
     this.socket = io(`${environment.apiUrl}`);
   }
 
+
+  
+
   ngOnInit() {
+    this.getTempHum12h();
+ 
+   
+    
     
     this.getCurrentTempHumi();
-    // console.log("la porte :",this.prt)
-
-    // this.registerForm = this.formBuilder.group({
-		// 	codeAccess:['', [Validators.required]],
-		// })
+    
 
     this.socket.on('temp', (data: number) => {
       // console.log('temp: '+data);
@@ -55,7 +64,7 @@ export class DashbComponent implements OnInit {
     });
 
     this.socket.on('niveau', (data: number) => {
-      console.log('niveau: '+data);
+      // console.log('niveau: '+data);
       this.realtimeNivEau = data;
     });
 
@@ -64,7 +73,7 @@ export class DashbComponent implements OnInit {
       if(data == 1) this.buzzerStatus = true;
       else  this.buzzerStatus = false;
 
-      console.log(this.buzzerStatus);
+      // console.log(this.buzzerStatus);
     });
 
   
@@ -75,8 +84,8 @@ export class DashbComponent implements OnInit {
       "val3":53,
     }
 
-    this.r= this.tabCurrentTH.temp;
-    console.log(this.r)
+    // this.r= this.tabCurrentTH.temp;
+    // console.log(this.r)
   }
 
   getCurrentTempHumi() {
@@ -88,14 +97,50 @@ export class DashbComponent implements OnInit {
         this.tabCurrentTH=tmp;
         this.tbTemp= this.tabCurrentTH.temp;
         // console.log(this.tbTemp)
-        this.tbHum= this.tabCurrentCycle.hum;
+        this.tbHum= this.tabCurrentTH.hum;
        
      
-    
       }
     )
   }
 
+
+  // methode pour recuperer la température et l'humidité à 12h
+  getTempHum12h()
+  {
+    // const now = new Date();
+    // const present = moment(now).format('HH:mm');
+    // //  console.log('present',present); 
+        
+    this.authService.getSerre().subscribe(
+      data => {
+      console.log("donnee yi", data)
+      let h= data
+      this.tabHeur = data
+
+      for (const i of this.tabHeur) {
+      // console.log(i.dateInsertion);
+      const formattedTime = moment(i?.dateInsertion).format('HH:mm');
+      // console.log(formattedTime ==="19:00");
+      if(formattedTime == '19:00')
+      {
+        this.tabData12hT.push(i.temp)
+        this.tabData12hH.push(i.hum)
+        let valT= this.tabData12hT[0];
+        let valH= this.tabData12hH[0];
+        console.log("LA VALEUR EST",valT);
+
+      }
+          
+        }
+        console.log("le table ", this.tabData12hT);
+        // console.log("LA VALEUR hum EST",this.valH);
+      }
+    )
+  }
+
+
+  
 
   lineChart = new Chart({
     chart: {
@@ -110,7 +155,7 @@ export class DashbComponent implements OnInit {
     series: [
       {
         name: 'Jours du cycle',
-        data: [0,34, 33.5,29,32.8,34,37,38,38.3,36,35.6,36.8,35,34.7,33,32,34.9,35,34.7,34,33.8,]
+        data: [0,29,32.8,34,37,38,38.3,36,35.6,36.8,35,34.7,33,32,34.9,35,34.7,34,33.8]
       } as any
     ]
   });
@@ -214,7 +259,7 @@ private getDismissReason(reason: any): string {
 }
 
 onCode(){
-  console.log(this.registerForm.value.codeAccess);
+  // console.log(this.registerForm.value.codeAccess);
   
    if(this.registerForm.value.codeAccess == 7890){
   this.socket.emit("openDoor", 1);

@@ -81,7 +81,7 @@ export class SideBarComponent implements OnInit {
     });
 
     this.socket.on('sol', (data: number) => {
-      console.log('sol: '+data);
+      // console.log('sol: '+data);
       this.realtimeSol = data;
     });
 
@@ -108,7 +108,7 @@ export class SideBarComponent implements OnInit {
     if(data == 1) this.humidStatus = true;
     else  this.humidStatus = false;
 
-    console.log(this.humidStatus);
+    // console.log(this.humidStatus);
   });
 
   // ACTIVATION/DESACTIVATION HEATER
@@ -116,7 +116,7 @@ export class SideBarComponent implements OnInit {
     if(data == 1) this.heaterStatus = true;
     else  this.heaterStatus = false;
 
-    console.log(this.heaterStatus);
+    // console.log(this.heaterStatus);
   });
 
   // ACTIVATION/DESACTIVATION LED POUR TEMPERATURE
@@ -192,18 +192,23 @@ export class SideBarComponent implements OnInit {
 
   return this.authService.insertCycle(cycle).subscribe(
     res=>{
-        console.log(res);
-        let infoConnexion = res;
-        // if(infoConnexion.data){
-        //   // setTimeout(()=> this.router.navigateByUrl('home'), 1000);
-        //   this.router.navigateByUrl('home');
-        // }
+        // console.log(res);
+        let infoCycle = res;
+        
+        if (infoCycle._id) {
+          this.toastr.success("Insertion reussie")
+          setTimeout(() => {
+            window.location.reload()
+          }, 2000);
+        }
+       
+        
     },
     error =>{
     
       setTimeout(()=> {this.spin = false; this.errorSms = false;},2000)
-      if(error == 'Not Found') return this.toastr.error('Erreur', 'Email introuvable!'); 
-      else return this.toastr.error('Erreur', 'Email ou mot de passe incorrect!'); 
+      if(error == 'Not Found') return this.toastr.error('Erreur', 'Remplissez tous les champs!'); 
+      else return this.toastr.error('Erreur', 'Remplissez tous les champs!!'); 
       // this.errorSms = true;
       // this.showSuccess();
       
@@ -229,10 +234,14 @@ export class SideBarComponent implements OnInit {
  
     
   } 
+
+  console.log(this.cycleForm2.value);
+  return
+  
   
   return this.authService.insertCycle(cycle2).subscribe(
     res=>{
-        console.log(res);
+        // console.log(res);
         
     },
     error =>{
@@ -250,11 +259,13 @@ export class SideBarComponent implements OnInit {
 
 
   updateFormCycle(){
+    //console.log(this.tabCurrentCycle.taux);
+    
     this.cycleForm2 = this.formBuilder.group({
-      id: [this.tabCurrentCycle.id],
+      id: [this.tabCurrentCycle._id],
       nombre: [this.tabCurrentCycle.nombre,[Validators.required]],
       espece: [this.tabCurrentCycle.espece,[Validators.required]],
-      // taux: [this.tabCurrentCycle.taux,[Validators.required]],
+      taux: [this.tabCurrentCycle.taux,[Validators.required]],
       numcycle: [this.tabCurrentCycle.numcycle,[Validators.required]],
       
     })
@@ -313,25 +324,6 @@ private getDismissReason(reason: any): string {
   };
 
   
-  // methode de modification et d'envoi des données de cycle vers la base de données
-  // onArroge() {
-
-  //   let cycle = {
-  //     nombre: this.cycleForm.value.nombre,
-  //     espece: this.cycleForm.value.espece,
-  //     taux: this.cycleForm.value.taux,
-  //     numcycle: this.cycleForm.value.numcycle
-  //   }
-
-  //   let id = localStorage.getItem("idArrosage")
-    // console.log(id)
-
-    // console.log("voilà: ", id == "643048ae7ae5b15ead0f684a");
-    // console.log(!arrose.dureMatin);
-
-
-  
-  //}
   
   getCurrentCycle() {
     
@@ -350,12 +342,21 @@ private getDismissReason(reason: any): string {
 
 
 
-  updateCurrentCycle(id:any, cycle :Cycle)
+  updateCurrentCycle()
   {
+
+    const cycle={
+      taux: this.cycleForm2.value.taux,
+      espece: this.cycleForm2.value.espece,
+      numcycle: this.cycleForm2.value.numcycle,
+      nombre: this.cycleForm2.value.nombre
+      
+    }
+   let id= this.cycleForm2.value.id;
   
     this.authService.updatecycle(id, cycle).subscribe(
       data => {
-        console.log(data);
+        // console.log(data);
         if (data.message == "Modifier avec succès") {
           this.toastr.success("Modifier avec succès")
           setTimeout(() => {
@@ -374,8 +375,7 @@ heureDepart = new Date();
 // Fonction récursive pour décrémenter le nombre toutes les heures
 decrementerNombre() {
     // Attendre une heure
-    while(this.nombreDepart>0)
-    {
+   
       setTimeout(() => {
       
         // Décrémenter le nombre de départ
@@ -383,19 +383,20 @@ decrementerNombre() {
         // this.nombreRestant= 21- this.nombreDepart;
 
         // Afficher le nouveau nombre de départ
-        console.log("NOMBRE DE DEPART : ", this.nombreDepart );
+        // console.log("NOMBRE DE DEPART : ", this.nombreDepart );
 
         // Appeler la fonction récursive pour décrémenter le nombre à la prochaine heure
         this.decrementerNombre();
     }, 4000); // 150000 millisecondes = 1 heure
-    }
+    
     
 }
 
 // 86400000
 
 alert19emeJour() {
-  if (this.nombreDepart == 3) { console.log("attention on est au 19 eme jour ")
+  if (this.nombreDepart == 3) {
+    //  console.log("attention on est au 19 eme jour ")
     this.socket.emit("19 eme", 1);
   } else {
     this.socket.emit("pas encore", 0);

@@ -3,5 +3,5 @@ export interface Serre {
     hum?: Number,
     lum?: Number,
     sol?: Number,
-    date?: Date
+    dateInsertion?: Date
 }

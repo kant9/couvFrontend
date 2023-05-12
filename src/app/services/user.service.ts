@@ -82,6 +82,8 @@ export class UserService {
 
 // SERVICE DE MODIFICATION DES DONNÉES DE LA SERRE
   updatecycle(id:any,cycle:Cycle){
+    // console.log(cycle);      
+    
     return this.httpClient.patch<Cycle>(`${environment.apiUrl}/updatecycle/${id}`,cycle)
   }
 
@@ -96,5 +98,9 @@ export class UserService {
   {
     return this.httpClient.get<Cycle>(`${environment.apiUrl}/allCycle`)
   }
+  
+  // Service pour recuperer uniquement les enregistrement à 12 h
+
+  
   
 }

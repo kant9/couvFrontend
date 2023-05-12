@@ -16,7 +16,7 @@ export class SocketioService {
     this.socket = io(`${environment.apiUrl}`);  
   
     this.socket.on('my broadcast', (data: string) => {
-      console.log(data );
+      // console.log(data );
       if (data !="refuse" && !this.localStatus) {
         localStorage.setItem('currentUser', JSON.stringify(data));
         localStorage.setItem('id', JSON.stringify("6426d7fa66dd3621431204dc"));
@@ -30,7 +30,7 @@ export class SocketioService {
   getTemp(){
     this.socket = io(`${environment.apiUrl}`);
     this.socket.on('temp', (data: string) => {
-      console.log('temp: '+data);
+      // console.log('temp: '+data);
       let temp = data;
       return temp
     });
@@ -39,7 +39,7 @@ export class SocketioService {
   getHum(){
     this.socket = io(`${environment.apiUrl}`);
     this.socket.on('hum', (data: string) => {
-      console.log('hum: '+data);
+      // console.log('hum: '+data);
       return data
     });
   }
@@ -47,7 +47,7 @@ export class SocketioService {
   getLum(){
     this.socket = io(`${environment.apiUrl}`);
     this.socket.on('lum', (data: string) => {
-      console.log('lum: '+data);
+      // console.log('lum: '+data);
       return data
     });
   }

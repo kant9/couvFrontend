@@ -30,12 +30,12 @@
           </tr>
         </thead>
         <tbody>
-        
-          <tr *ngFor="let i of dataSerreInfo| filter:searchText | paginate: { itemsPerPage:  itemsperpage, currentPage: p}">
+
+          <tr *ngFor="let i of dataSerreInfo | filter:searchText | paginate: { itemsPerPage:  itemsperpage, currentPage: p}">
             <!-- <th rowspan="3" scope="row" class="text-center">Temperature en °C</th> -->
-            <td><p>{{i.dateInsertion}}</p></td>
-            <td><p>{{i.temp}}</p></td>
-            <td><p>{{i.hum}}</p></td>
+              <td><p>{{i.dateInsertion}}</p></td>
+              <td><p>{{i.temp}}</p></td>
+              <td><p>{{i.hum}}</p></td>
 
           </tr>
         </tbody>
@@ -77,6 +77,16 @@
         <img src="../../../assets/LienTH.png" alt="" height="50x" class="d-flex justify-content-center rounded-circle pe-auto" title="Histo-Hum/Temperature" (click)="on()" role="button">
       </div>
     </div>
+    <!-- <div class="form-group col-md-3">
+      <div class="input-group">
+      <span class="input-group-text" id="inputGroupPrepend2"><i class="bi bi-search"></i></span>
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Rechercher un utilisateur"
+        [(ngModel)]="filterTerm"/>
+      </div>
+    </div> -->
 
     <div class="d-flex justify-content-center  w-75 mb-1" style="margin:0 auto">
         <table class="table table-bordered " style="border: 2px solid ;">
@@ -100,7 +110,7 @@
           
             <tr *ngFor="let en of dataCycle| filter:searchText | paginate: { itemsPerPage:  itemsperpage, currentPage: p}">
               <!-- <th rowspan="3" scope="row" class="text-center">Temperature en °C</th> -->
-              <td><p>{{en.dateInsertion }}</p></td>
+              <td><p>{{en.dateInsertion}}</p></td>
               <td><p>{{en.numcycle}}</p></td>
               <td><p>{{en.espece}}</p></td>
               <td><p>{{en.nombre}}</p></td>

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 // import tableauSol from '../../histo2.json';
 //  import tableau from '../../histo.json'; 
 import { UserService } from 'src/app/services/user.service';
-
+import { DatePipe } from '@angular/common';
 
 
 
@@ -24,13 +24,22 @@ date:string;
   styleUrls: ['./tableau.component.scss']
 })
 export class TableauComponent implements OnInit {
-   // histoSol: any[] = tableauSol;
-  // histo: any[] = tableau ;
+  
+  dataArray: any[] = [
+    { id: 1, name: 'John' },
+    { id: 2, name: 'Jane' },
+    { id: 3, name: 'Bob' },
+    { id: 4, name: 'Alice' },
+  ];
+  searchResult: any[] = [];
+  searchTerm: string = '';
+
+currentDte=new Date();
 showFormPass =false;
 searchText!: string;
 itemsperpage: number=5;
 p: number=1;
-
+currentDate:any;
 dataSerreInfo:any; dataCycle:any;
 
 
@@ -43,13 +52,14 @@ dataSerreInfo:any; dataCycle:any;
   }
   ngOnInit() {
   //  this.histo=tableau;
-  //  console.log(this.histo)
+  //  console.log(this.currentDte)
+  
    this.getDataSerre();
    this.getDataCycle();
   }
 
   search(e:any) {
-   console.log(e.target.value)
+  //  console.log(e.target.value)
    this.dataSerreInfo=this.dataSerreInfo.filter((el:any)=>{
      return el.date.toLowerCase().includes(e.target.value.toLowerCase())
 
@@ -63,6 +73,7 @@ dataSerreInfo:any; dataCycle:any;
       // console.log(res);
       let data = res;
       this.dataSerreInfo = data;
+      // console.log(this.dataSerreInfo);
     }
   )
  }
@@ -73,7 +84,7 @@ dataSerreInfo:any; dataCycle:any;
       // console.log(res);
       let data = res;
       this.dataCycle = data;
-      console.log(this.dataCycle);
+      // console.log(this.dataCycle);
     }
   )
  }
