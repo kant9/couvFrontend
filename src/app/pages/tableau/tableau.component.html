@@ -6,14 +6,11 @@
   
   <!-- /recherche/  et symbole de la redirection-->
   <div class="d-flex flex-row justify-content-around  h-25" style=" width: 70%;margin:0 auto;gap: 50%; margin-bottom: 17px;">
-    <div class="form-group">
-      <input
-        type="text"
-        class="form-control"
-        placeholder="Search..."
-        [(ngModel)]="filterTerm"
-      />
+    <div style="width: 40%;" class="search-name">
+      <input  class="form-control" type="date" name="search" [(ngModel)]="searchText" autocomplete="on" placeholder=" SEARCH  ">
     </div>
+
+    <!-- <input *ngIf="show" id="search" class="form-control" type="date" name="search" placeholder="Rechercher" [(ngModel)]="filterTerm"> -->
   
     <div class="d-flex justify-content-center" style="width: 2%;height: 50px;">
       <img src="../../../assets/cycle.png" alt="" height="50x" class="d-flex justify-content-center rounded-circle pe-auto" title="Histo-Cycles" (click)="onclick()" role="button">
@@ -37,9 +34,9 @@
         </thead>
         <tbody>
 
-          <tr *ngFor="let i of dataSerreInfo | filter:filterTerm | paginate: { itemsPerPage:  itemsperpage, currentPage: p}">
+          <tr *ngFor="let i of dataSerreInfo | filter:searchText | paginate: { itemsPerPage:  itemsperpage, currentPage: p}">
             <!-- <th rowspan="3" scope="row" class="text-center">Temperature en °C</th> -->
-              <td><p>{{i.dateInsertion |date: 'dd-MM-yyyy' }}</p></td>
+              <td><p>{{i.dateInsertion }}</p></td>
               <td><p>{{i.temp}}</p></td>
               <td><p>{{i.hum}}</p></td>
           </tr>
@@ -87,7 +84,7 @@
           </div>
       </div> -->
       <div class="search-hero">
-        <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="&#61442;  Vueillez saisir le nom de l'espece">
+        <input class="form-control" type="date" name="search" [(ngModel)]="searchText" autocomplete="on" placeholder="SEARCH">
       </div>
       <!-- /recherche/ -->
       <div class="d-flex justify-content-center" style="width: 2%;height: 50px;">
@@ -117,7 +114,7 @@
           
             <tr *ngFor="let en of dataCycle | filter:searchText | paginate: { itemsPerPage:  itemsperpage, currentPage: p}">
              
-              <td><p>{{en.dateInsertion |date}}</p></td>
+              <td><p>{{en.dateInsertion}}</p></td>
               <td><p>{{en.numcycle}}</p></td>
               <td><p>{{en.espece}}</p></td>
               <td><p>{{en.nombre}}</p></td>

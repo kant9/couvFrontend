@@ -29,13 +29,12 @@ import moment from 'moment';
 export class TableauComponent implements OnInit {
 
 searchResult: any[] = [];
-searchTerm: string = '';      filteredItems: any[]=[]; // Tableau des éléments à filtrer
-                              // Date de recherche
+searchTerm: string = '';      searchText: any;
 
 
 currentDte=new Date();
 showFormPass =false;
-searchText!: string;   
+  
 itemsperpage: number=5;
 p: number=1;
   searchDate!: Date;

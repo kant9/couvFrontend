@@ -57,6 +57,7 @@ import {ChartModule} from 'angular-highcharts'
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
+    Ng2SearchPipeModule,
     NgbModule,
     NgxPaginationModule,
     ChartModule,
