@@ -5,45 +5,47 @@ import { UserService } from 'src/app/services/user.service';
 import { DatePipe } from '@angular/common';
 
 
+import { Moment } from 'moment';
+import moment from 'moment';
 
-export interface DONNE {
-  tempearture: string;
-  humidite: string;
-date:string;
-}
+// export interface DONNE {
+//   tempearture: string;
+//   humidite: string;
+// date:string;
+// }
 
-export interface ensol{
- ensol: string;
-  humiditeSol: string;
-date:string;
-}
+// export interface ensol{
+//  ensol: string;
+//   humiditeSol: string;
+// date:string;
+// }
 
 @Component({
   selector: 'app-tableau',
   templateUrl: './tableau.component.html',
-  styleUrls: ['./tableau.component.scss']
+  styleUrls: ['./tableau.component.scss'],
+  providers: [DatePipe]
 })
 export class TableauComponent implements OnInit {
-  
-  dataArray: any[] = [
-    { id: 1, name: 'John' },
-    { id: 2, name: 'Jane' },
-    { id: 3, name: 'Bob' },
-    { id: 4, name: 'Alice' },
-  ];
-  searchResult: any[] = [];
-  searchTerm: string = '';
+
+searchResult: any[] = [];
+searchTerm: string = '';      filteredItems: any[]=[]; // Tableau des éléments à filtrer
+                              // Date de recherche
+
 
 currentDte=new Date();
 showFormPass =false;
-searchText!: string;
+searchText!: string;   
 itemsperpage: number=5;
 p: number=1;
+  searchDate!: Date;
 currentDate:any;
-dataSerreInfo:any; dataCycle:any;
+dataSerreInfo: any[] = []; dataCycle:any;
+  Data: any;
+  filterTerm!: string;
+  filteredData: any;
 
-
- constructor(private serreData: UserService) {}
+ constructor(private serreData: UserService, private datePipe: DatePipe) {}
  onclick(){
   this.showFormPass= true; 
  }
@@ -56,6 +58,8 @@ dataSerreInfo:any; dataCycle:any;
   
    this.getDataSerre();
    this.getDataCycle();
+  
+   
   }
 
   search(e:any) {
@@ -68,12 +72,23 @@ dataSerreInfo:any; dataCycle:any;
  }
 
  getDataSerre(){
+  this.currentDate = new Date
+       let nowdate= moment(this.currentDate).format('MM/DD/YYYY');
+      //  const formattedTime = moment(i?.dateInsertion).format('HH:mm');
+      // console.log(nowdate);
   return this.serreData.getSerre().subscribe(
     res=>{
-      // console.log(res);
-      let data = res;
-      this.dataSerreInfo = data;
-      // console.log(this.dataSerreInfo);
+      
+      this.Data = res
+console.log(this.Data);
+
+      for (const i of this.Data) {
+      // console.log(i.dateInsertion);
+      const formattedTime = moment(i?.dateInsertion).format('DD:MM:YYYY');
+          
+        }
+      this.dataSerreInfo = this.Data;
+      console.log(this.dataSerreInfo);
     }
   )
  }
@@ -81,11 +96,39 @@ dataSerreInfo:any; dataCycle:any;
  getDataCycle(){
   return this.serreData.getAllCycle().subscribe(
     res=>{
-      // console.log(res);
+       console.log(res);
       let data = res;
       this.dataCycle = data;
       // console.log(this.dataCycle);
     }
   )
  }
+
+//  searchByDate() {
+
+//    this.serreData.getSerre().subscribe(
+//     res=>{
+      
+//       // let data = res;
+//       this.Data = res
+//       this.dataSerreInfo = this.Data;
+//       console.log(this.dataSerreInfo);
+//     }
+//   )
+//   if (this.searchDate) {
+//     this.filteredData = this.dataSerreInfo.filter((item: { dateInsertion: Date; }) => {
+//       // Remplacez "item.date" par la propriété contenant la date dans votre objet
+//       const itemDate = new Date(item.dateInsertion);
+//       return itemDate.toDateString() === this.searchDate.toDateString();
+//     });
+//   } else {
+//     // Si aucune date n'est spécifiée, réinitialisez les éléments filtrés
+//     this.filteredData = this.dataSerreInfo;
+//   }
+// }
+
+
+
+
+
 }

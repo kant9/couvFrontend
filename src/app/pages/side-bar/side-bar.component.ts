@@ -31,7 +31,7 @@ export class SideBarComponent implements OnInit {
   showHistorique:boolean = false
   nombreDepart = 21; nombreRestant:any;
   
-  
+  derniereValeur!:any
 
   // showHome: boolean = false; showDashboard: boolean = true;
   // showInfo: boolean = false; infoArrosage: boolean = true; titleArrosage: boolean = true; 
@@ -61,6 +61,7 @@ export class SideBarComponent implements OnInit {
     if(!rout) window.location.pathname=''
 
 
+    
     // this.registerForm = this.formBuilder.group({
 		// 	codeAccess:['', [Validators.required]],
 		// })
@@ -316,6 +317,9 @@ private getDismissReason(reason: any): string {
 
 
   reloadHome = () => window.location.pathname = 'home';
+    
+    
+    
 
   logout = () => {
     localStorage.removeItem('currentUser');
@@ -375,13 +379,13 @@ heureDepart = new Date();
 // Fonction récursive pour décrémenter le nombre toutes les heures
 decrementerNombre() {
     // Attendre une heure
-   
+    
       setTimeout(() => {
       
         // Décrémenter le nombre de départ
         this.nombreDepart -= 1;
         // this.nombreRestant= 21- this.nombreDepart;
-
+       
         // Afficher le nouveau nombre de départ
         // console.log("NOMBRE DE DEPART : ", this.nombreDepart );
 
@@ -389,7 +393,11 @@ decrementerNombre() {
         this.decrementerNombre();
     }, 4000); // 150000 millisecondes = 1 heure
     
+  
     
+{
+  
+}
 }
 
 // 86400000
@@ -403,6 +411,7 @@ alert19emeJour() {
   }
 }
   
+
 
 
 

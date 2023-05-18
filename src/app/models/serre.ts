@@ -1,7 +1,7 @@
 export interface Serre {
-    temp?: Number,
-    hum?: Number,
-    lum?: Number,
-    sol?: Number,
+    
+    temp?: String,
+    hum?: String,
+    lum?: String,
     dateInsertion?: Date
 }
