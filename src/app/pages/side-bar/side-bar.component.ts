@@ -336,6 +336,10 @@ private getDismissReason(reason: any): string {
       //  console.log("donnee", data)
         let tmp= data;
         this.tabCurrentCycle=tmp;
+        // console.log(this.tabCurrentCycle);
+        
+        
+        
     
       }
     )
@@ -370,6 +374,75 @@ private getDismissReason(reason: any): string {
       }
     )
   }
+
+
+
+  updateCurrentNombre()
+  {
+
+    const cycle={
+      taux: this.cycleForm2.value.taux,
+      espece: this.cycleForm2.value.espece,
+      numcycle: this.cycleForm2.value.numcycle,
+      nombre: this.cycleForm2.value.nombre,
+      nbrJ: this.cycleForm2.value.nbJours
+      
+    }
+   let id= this.cycleForm2.value.id;
+  
+    this.authService.updateNbrJour(id, cycle).subscribe(
+      data => {
+        // console.log(data);
+        if (data.message == "Modifier avec succès") {
+          this.toastr.success("Modifier avec succès")
+          setTimeout(() => {
+            this.updateCurrentNombre()
+          }, 6000);
+        }
+      }
+    )
+  }
+
+//   updateCurrentNombre()
+//   {
+
+//     setTimeout(() => {
+//       const leNombre={
+//         nbrJr: this.cycleForm2.value.nbJours +1
+//       } 
+//       console.log(leNombre)
+//      let id= this.cycleForm2.value.id;
+    
+//       this.authService.updatecycle(id, leNombre).subscribe(
+//         data => {
+//           // console.log(data);
+//           if (data.message == "Nombre Modifier avec succès") {
+//             this.toastr.success("Nombre Modifier avec succès")
+//             setTimeout(() => {
+//               window.location.reload()
+//             }, 2000);
+//           }
+//         }
+//       )
+
+//     }, 8000);
+    
+  
+
+// }
+
+  
+
+  // updateNbrJour
+
+
+
+
+
+
+
+
+
 
 // fonction pour la décrementation du nombre de jours
 

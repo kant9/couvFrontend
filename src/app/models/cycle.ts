@@ -6,6 +6,7 @@ export interface Cycle {
     taux?: number,
     numcycle?: String,
     message?:String,
+    nbrJr?:number,
     dateInsertion?: Date,
 }
 

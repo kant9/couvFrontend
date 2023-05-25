@@ -37,7 +37,17 @@ export class DashbComponent implements OnInit {
   t1!:any ;  t2!:any ; t3!:any ; t4!:any ; t5!:any; t6!:any; t7!:any; t8!:any; t9!:any; t10!:any;
   t11!:any ;  t12!:any ; t13!:any ; t14!:any ; t15!:any; t16!:any; t17!:any; t18!:any; t19!:any; t20!:any; t21!:any;
 
-  lineChart:any
+
+//  LES VARIABLES POUR HUMIDITÉ
+Hum1:any=""; Hum2:any; Hum3:any; Hum4:any; Hum5:any; Hum6:any ;Hum7:any; Hum8:any; Hum9:any; Hum10:any
+Hum11:any=""; Hum12:any; Hum13:any; Hum14:any; Hum15:any; Hum16:any ;Hum17:any; Hum18:any; Hum19:any; Hum20:any; Hum21:any
+
+  h1!:any ;  h2!:any ; h3!:any ; h4!:any ; h5!:any; h6!:any; h7!:any; h8!:any; h9!:any; h10!:any;
+  h11!:any ;  h12!:any ; h13!:any ; h14!:any ; h15!:any; h16!:any; h17!:any; h18!:any; h19!:any; h20!:any; h21!:any;
+
+
+  lineChart:any 
+  lineChart2:any 
   tabCurrentCycle:any;
   tabHeur: any =null
   tabCurrentTH:any
@@ -136,7 +146,6 @@ export class DashbComponent implements OnInit {
         this.Temp1= this.tabData12hT[0];   this.Temp2= this.tabData12hT[1];
         this.Temp3= this.tabData12hT[2];   this.Temp4= this.tabData12hT[3];
         this.Temp5= this.tabData12hT[4];   this.Temp6= this.tabData12hT[5];
-
         this.Temp7= this.tabData12hT[6];   this.Temp8= this.tabData12hT[7];
         this.Temp9= this.tabData12hT[8];   this.Temp10= this.tabData12hT[9];
         this.Temp11= this.tabData12hT[10];   this.Temp12= this.tabData12hT[11];
@@ -145,9 +154,21 @@ export class DashbComponent implements OnInit {
         this.Temp17= this.tabData12hT[16];   this.Temp18= this.tabData12hT[17];
         this.Temp19= this.tabData12hT[18];   this.Temp20= this.tabData12hT[19];
         this.Temp21= this.tabData12hT[20];   
-        
 
-        console.log(this.tabData12hT);
+        // humidite
+        this.Hum1= this.tabData12hH[0];   this.Hum2= this.tabData12hH[1];
+        this.Hum3= this.tabData12hH[2];   this.Hum4= this.tabData12hH[3];
+        this.Hum5= this.tabData12hH[4];   this.Hum6= this.tabData12hH[5];
+        this.Hum7= this.tabData12hH[6];   this.Hum8= this.tabData12hH[7];
+        this.Hum9= this.tabData12hH[8];   this.Hum10= this.tabData12hH[9];
+        this.Hum11= this.tabData12hH[10];   this.Hum12= this.tabData12hH[11];
+        this.Hum13= this.tabData12hH[12];   this.Hum14= this.tabData12hH[13];
+        this.Hum15= this.tabData12hH[14];   this.Hum16= this.tabData12hH[15];
+        this.Hum17= this.tabData12hH[16];   this.Hum18= this.tabData12hH[17];
+        this.Hum19= this.tabData12hH[18];   this.Hum20= this.tabData12hH[19];
+        this.Hum21= this.tabData12hH[20];   
+      
+        // console.log(this.tabData12hT);
         this.t1 = parseFloat(this.Temp1, ); this.t2 = parseFloat(this.Temp2, );
         this.t3 = parseFloat(this.Temp3, ); this.t4 = parseFloat(this.Temp4, );
         this.t5 = parseFloat(this.Temp5, ); this.t6 = parseFloat(this.Temp6, );
@@ -161,6 +182,21 @@ export class DashbComponent implements OnInit {
         this.t17 = parseFloat(this.Temp17, ); this.t18 = parseFloat(this.Temp18, );
         this.t19 = parseFloat(this.Temp19, ); this.t20 = parseFloat(this.Temp20, );
         this.t21 = parseFloat(this.Temp21, ); 
+
+        // humidité 
+        this.h1 = parseFloat(this.Hum1, ); this.h2 = parseFloat(this.Hum2, );
+        this.h3 = parseFloat(this.Hum3, ); this.h4 = parseFloat(this.Hum4, );
+        this.h5 = parseFloat(this.Hum5, ); this.h6 = parseFloat(this.Hum6, );
+        this.h7 = parseFloat(this.Hum7, ); this.h8 = parseFloat(this.Hum8, );
+
+        this.h9 = parseFloat(this.Hum9, ); this.h10 = parseFloat(this.Hum10, );
+        this.h11 = parseFloat(this.Hum11, ); this.h12 = parseFloat(this.Hum12, );
+        this.h13 = parseFloat(this.Hum13, ); this.h14 = parseFloat(this.Hum14, );
+        this.h15 = parseFloat(this.Hum15, ); this.h16 = parseFloat(this.Hum16, );
+
+        this.h17 = parseFloat(this.Hum17, ); this.h18 = parseFloat(this.Hum19, );
+        this.h19 = parseFloat(this.Hum19, ); this.h20 = parseFloat(this.Hum20, );
+        this.h21 = parseFloat(this.Hum21, ); 
         
         console.log(this.t15);
         console.log(this.Temp2);
@@ -183,6 +219,27 @@ export class DashbComponent implements OnInit {
             } as any
           ]
         });
+
+      // SECOND GRAPH 
+
+      this.lineChart2= new Chart({
+        chart: {
+          type: 'line'
+        },
+        title: {
+          text: 'Hum (%)'
+        },
+        credits: {
+          enabled: false
+        },
+        series: [
+          {
+            name: 'Jours du cycle',
+            data: [0,this.h1, this.h2, this.h3,this.h4, this.h5,this.h6,this.h7,this.h8,this.h9,this.h10,
+            this.h11,this.h12,this.h13,this.h14,this.h15,this.h16,this.h17,this.h18,this.h19,this.h20,this.h21]
+          } as any
+        ]
+      });
         
       }
           
@@ -193,43 +250,6 @@ export class DashbComponent implements OnInit {
   }
 
 
-  
-
-  // lineChart = new Chart({
-  //   chart: {
-  //     type: 'line'
-  //   },
-  //   title: {
-  //     text: 'Temp (°C)'
-  //   },
-  //   credits: {
-  //     enabled: false
-  //   },
-  //   series: [
-  //     {
-  //       name: 'Jours du cycle',
-  //       data: [0,this.Temp1,32.8,34,37,38,38.3,36,35.6,36.8,35,34.7,33,32,34.9,35,34.7,34,33.8]
-  //     } as any
-  //   ]
-  // });
-// SECOND GRAPH
-lineChart2 = new Chart({
-  chart: {
-    type: 'line'
-  },
-  title: {
-    text: 'Hum (%)'
-  },
-  credits: {
-    enabled: false
-  },
-  series: [
-    {
-      name: 'Jours du cycle',
-      data: [0,57, 55,56.4,58,62,61,59,61,66,65,64.7,65.3,66.6,67,67.8,68.5,69,71,71.2,74,76.7]
-    } as any
-  ]
-});
 
   showHistorique:boolean = false
   isOn = false;

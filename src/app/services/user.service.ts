@@ -99,8 +99,10 @@ export class UserService {
     return this.httpClient.get<Cycle>(`${environment.apiUrl}/allCycle`)
   }
   
-  // Service pour recuperer uniquement les enregistrement à 12 h
-
+  // Service pour modifier le nombre de jours
+  updateNbrJour(id:any,cycle:Cycle){     
+    return this.httpClient.patch<Cycle>(`${environment.apiUrl}/updateNbrJour/${id}`,cycle)
+  }
   
   
 }
